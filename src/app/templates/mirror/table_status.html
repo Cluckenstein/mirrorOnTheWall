@@ -1,4 +1,4 @@
-{% extends "asc/base.html" %}
+{% extends "mirror/base.html" %}
 
 {% block content %}
 <button style ="margin:7px;" class="btn btn-secondary" onclick="generate()">PDF Download</button><button style ="margin:7px;"  class="btn btn-secondary" onclick="init_table()">Alle anzeigen</button>
@@ -26,10 +26,10 @@
     <tbody id = "status_table">
     </tbody>
 </table>
-<script type="text/javascript" src="{{ url_for('static', filename='asc/jquery.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='asc/func_status.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='asc/jspdf.umd.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='asc/jspdf.plugin.autotable.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='mirror/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='mirror/func_status.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='mirror/jspdf.umd.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='mirror/jspdf.plugin.autotable.min.js') }}"></script>
 <script>
     $body = $("body");
 

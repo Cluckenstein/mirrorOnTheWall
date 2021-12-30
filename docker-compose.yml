@@ -1,55 +1,31 @@
 version: "3"
 services:
-  web_asc:
+  mirrorOnTheWall:
+    container_name: mirror_steuer
     environment:
         TZ: "Europe/Berlin"
     build: .
     restart: always
-    privileged: true
     ports:
-      - "5012:80"
-    depends_on:
-      - 'db'
+      - "8081:80"
+    # volumes:
+    #     - ${VOL_MOUNT}
+    #     - ${SP_MOUNT}
+
+  magicMirror:
+    container_name: mirror_magic
+    environment:
+        TZ: "Europe/Berlin"
+    build: bastilimbach/docker-magicmirror
+    restart: always
+    ports:
+      - "8082:80"
+
     volumes:
-        - ${VOL_MOUNT}
-        - ${SP_MOUNT}
+        - ${MM_CONFIG_MOUNT}
+        - ${MM_MODULES_MOUNT}
 
-  # sele:
-  #   environment:
-  #         TZ: "Europe/Berlin"
-  #   image: selenium/standalone-chrome:latest
-  #   restart: always
-  #   privileged: true
-  #   ports:
-  #     - "4444:4444"
 
-  # db:
-  #   image: mysql:5.7
-  #   restart: always
-  #   privileged: true
-  #   environment:
-  #     MYSQL_DATABASE: 'db'
-  #     MYSQL_USER: ${DB_USER}
-  #     MYSQL_PASSWORD: ${DB_PW}
-  #     MYSQL_ROOT_PASSWORD: ${DB_PW}
-  #   ports:
-  #     - '${DB_PORT}:3306'
-  #   expose:
-  #     - '${DB_PORT}'
 
-  # db_backup:
-  #   image: databack/mysql-backup:latest
-  #   user: "${BACKUP_UID}:${BACKUP_GID}"
-  #   depends_on:
-  #     - 'db'
-  #   restart: always
-  #   environment:
-  #     DB_DUMP_BEGIN: '+1'
-  #     DB_DUMP_TARGET: '/db'
-  #     DB_SERVER: ${DB_SERVER}
-  #     DB_PORT: ${DB_PORT}
-  #     DB_USER: ${DB_USER}
-  #     DB_PASS: ${DB_PW}
-  #     MYSQLDUMP_OPTS: --no-tablespaces
-  #   volumes:
-  #     - ${BACKUP_MOUNT}
+
+

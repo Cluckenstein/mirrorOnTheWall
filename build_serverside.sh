@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /volume1/repos/abr_asc
+cd /volume1/repos/mirror
 /bin/git fetch --all
 /bin/git reset --hard origin/master
 /bin/git pull origin master

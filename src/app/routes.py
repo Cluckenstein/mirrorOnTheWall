@@ -29,7 +29,7 @@ def table_front():
     if session.get('granted'):
         # if session is granted, return table with data else send to password page 
         data_json = get_data_return()
-        return render_template('asc/table_order.html', tbl = data_json)
+        return render_template('mirror/table_order.html', tbl = data_json)
     else:
         form = token_pw()
 
@@ -38,15 +38,15 @@ def table_front():
             validated = check_pw(input_pw)
         else:
             validated = False
-            return render_template('asc/password.html', form=form)
+            return render_template('mirror/password.html', form=form)
 
         if not validated:
             flash('Invalid password')
-            return render_template('asc/password.html', form=form)
+            return render_template('mirror/password.html', form=form)
         else:
             session['granted'] = True
             data_json = get_data_return()
-            return render_template('asc/table_order.html', tbl = data_json)
+            return render_template('mirror/table_order.html', tbl = data_json)
 
 
 @app.route('/data_change/', methods=['GET', 'POST'])
@@ -83,7 +83,7 @@ def table_status():
     if session.get('granted'):
         # if session is granted, return table with data else send to password page 
         data_json = stat.get_data_return()
-        return render_template('asc/table_status.html', tbl = data_json)
+        return render_template('mirror/table_status.html', tbl = data_json)
     else:
         form = token_pw()
 
@@ -92,15 +92,15 @@ def table_status():
             validated = check_pw(input_pw)
         else:
             validated = False
-            return render_template('asc/password.html', form=form)
+            return render_template('mirror/password.html', form=form)
 
         if not validated:
             flash('Invalid password')
-            return render_template('asc/password.html', form=form)
+            return render_template('mirror/password.html', form=form)
         else:
             session['granted'] = True
             data_json = stat.get_data_return()
-            return render_template('asc/table_status.html', tbl = data_json)
+            return render_template('mirror/table_status.html', tbl = data_json)
 
 
 @app.route('/status_change/', methods=['GET', 'POST'])
