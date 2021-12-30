@@ -1,0 +1,46 @@
+{% extends "asc/base.html" %}
+
+{% block content %}
+<button style ="margin:7px;" class="btn btn-secondary" onclick="generate()">PDF Download</button><button style ="margin:7px;"  class="btn btn-secondary" onclick="init_table()">Alle anzeigen</button>
+<ul class="legend">
+    <li>Nach aktuell geltenden Vorschriften ab dem 28.12.2021 </li> <br>
+    <li><span class="zweiG"></span> 2G </li> <br>
+    <li><span class="zweiGplus"></span> 2G+ </li>
+</ul>
+<br>
+<br><div style="margin-left: 7px;"><b>Aktuell bei S+ eingetragene Athleten mit der Liste zum Impfstatus abgleichen: </b></div><br>
+<div class="modal"></div>
+<div id = 'dynamic_buttons'></div>
+<br>
+<table id="data_html" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Letzte Impfung</th>
+            <th>Booster</th>
+            <th>Eingetragen von</th>
+            <th>Eingetragen am</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id = "status_table">
+    </tbody>
+</table>
+<script type="text/javascript" src="{{ url_for('static', filename='asc/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='asc/func_status.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='asc/jspdf.umd.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='asc/jspdf.plugin.autotable.min.js') }}"></script>
+<script>
+    $body = $("body");
+
+    $(document).on({
+        ajaxStart: function() { $body.addClass("loading");    },
+            ajaxStop: function() { $body.removeClass("loading"); }    
+    });
+
+  var tbl = JSON.parse('{{ tbl | tojson }}'); //data from db 
+  init_table(first = true)
+
+</script>
+
+{% endblock %}

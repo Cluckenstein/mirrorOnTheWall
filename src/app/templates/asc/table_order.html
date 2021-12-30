@@ -1,0 +1,37 @@
+{% extends "asc/base.html" %}
+
+
+{% block content %}
+<table id="data_html" class="table table-striped">
+    <thead>
+        <tr>
+            <th> </th>
+            <th>Name <button class="btn btn-secondary" onclick="sort_table('disziplin')">Sort</button> </th>
+            <th>Datum <button class="btn btn-secondary" onclick="sort_table('date')">Sort</button><button class="btn btn-secondary" onclick="set_range()">Set</button>  <br>
+                <input type="date" class ="btn" id="range_start" value="2021-01-01" min="2021-01-01"><br>
+                <input type="date" class ="btn" id="range_end" value="2022-01-01" min="2021-01-01">
+            </th>
+            <th><button class="btn btn-secondary" onclick="unlock('KR')">KR</button></th>
+            <th><button class="btn btn-secondary" onclick="unlock('SB')">SB</button></th>
+            <th><button class="btn btn-secondary" onclick="unlock('MO')">MO</button></th>
+            <th><button class="btn btn-secondary" onclick="unlock('CW')">CW</button></th>
+            <th><button class="btn btn-secondary" onclick="unlock('JE')">JE</button></th>
+            <th><button class="btn btn-secondary" onclick="unlock('FH')">FH</button></th>
+            <th><button class="btn btn-secondary" onclick="unlock('MR')">MR</button></th>
+            <th><button class="btn btn-primary" onclick="save_values()">Save</button></th>
+        </tr>
+    </thead>
+    <tbody id = "termin_table">
+    </tbody>
+</table>
+
+<script type="text/javascript" src="{{ url_for('static', filename='asc/func_helper.js') }}"></script>
+<script>
+  var tbl = JSON.parse('{{ tbl | tojson }}'); //data from db 
+  const yourDate = new Date()
+  document.getElementById('range_end').value = yourDate.toISOString().split('T')[0] //set date of pick range to today
+  init_table(first = true)
+
+</script>
+
+{% endblock %}
