@@ -1,26 +1,25 @@
 version: "3"
 services:
-  mirrorOnTheWall:
-    container_name: mirror_steuer
-    environment:
-        TZ: "Europe/Berlin"
-    build: .
-    restart: always
-    ports:
-      - "8081:80"
+  # mirror_on_the_wall:
+  #   container_name: mirror_steuer
+  #   environment:
+  #       TZ: "Europe/Berlin"
+  #   build: .
+  #   restart: always
+  #   ports:
+  #     - "8081:80"
     # volumes:
     #     - ${VOL_MOUNT}
     #     - ${SP_MOUNT}
 
-  magicMirror:
+  magic_mirror:
     container_name: mirror_magic
     environment:
         TZ: "Europe/Berlin"
-    build: bastilimbach/docker-magicmirror
+    image: bastilimbach/docker-magicmirror
     restart: always
     ports:
-      - "8082:80"
-
+      - "8082:8080"
     volumes:
         - ${MM_CONFIG_MOUNT}
         - ${MM_MODULES_MOUNT}
