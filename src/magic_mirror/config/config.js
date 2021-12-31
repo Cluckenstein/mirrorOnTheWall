@@ -54,29 +54,24 @@ let config = {
 			}
 		},
 		{
-			module: "compliments",
-			position: "lower_third"
-		},
-		{
 			module: "weather",
 			position: "top_right",
 			config: {
 				weatherProvider: "openweathermap",
-				type: "current",
-				location: "New York",
-				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "YOUR_OPENWEATHER_API_KEY"
+				type: "forecast",
+				location: "Konstanz",
+				locationID: "2885679", 
+				apiKey: "28f8833d6494314b297aba01d98a6f72"
 			}
 		},
 		{
 			module: "weather",
 			position: "top_right",
-			header: "Weather Forecast",
 			config: {
 				weatherProvider: "openweathermap",
 				type: "forecast",
-				location: "New York",
-				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
+				location: "Stuttgart",
+				locationID: "2825297", 
 				apiKey: "28f8833d6494314b297aba01d98a6f72"
 			}
 		},
