@@ -17,19 +17,23 @@ from src.worker.worker_functions import *
 import src.worker.status_functions as stat
 from copy import deepcopy
 
-@app.route('/abrechnung', methods=['GET', 'POST'])
-@app.route('/abrechnung/', methods=['GET', 'POST'])
-def table_front():
+@app.route('', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
+def table_status():
+
     """Main page  which displays the table and is changed and sorted in front end
 
     Returns:
         render html and data: renders page and gives list of lists to frontend 
     """
+    
+    config = load_config('config.js')
+    return render_template('mirror.html', data = config)
 
     if session.get('granted'):
         # if session is granted, return table with data else send to password page 
-        data_json = get_data_return()
-        return render_template('mirror/table_order.html', tbl = data_json)
+        data_json = stat.get_data_return()
+        return render_template('mirror/table_status.html', tbl = data_json)
     else:
         form = token_pw()
 
@@ -45,30 +49,9 @@ def table_front():
             return render_template('mirror/password.html', form=form)
         else:
             session['granted'] = True
-            data_json = get_data_return()
-            return render_template('mirror/table_order.html', tbl = data_json)
+            data_json = stat.get_data_return()
+            return render_template('mirror/table_status.html', tbl = data_json)
 
-
-@app.route('/data_change/', methods=['GET', 'POST'])
-def data_change_fct():
-    """If an entry is saved this evaluates, writes to db and responds with updatet data 
-
-    Returns:
-        jsonified new data: list of lists
-    """
-    cnx, cursor = connect()
-    data = request.json['data']
-    print('The values changed')
-    print(data)
-    _ = change_data_db(cnx, cursor, data)
-
-    data_new = fetch_all(cursor, id = True)
-    dat = [[k if type(k)!= datetime else datetime.timestamp(k) for k in ent] for ent in data_new]
-    data_json = {'data': dat}
-
-    _ = kill_connect(cnx, cursor)
-
-    return jsonify(data_json)
 
 
 @app.route('/check', methods=['GET', 'POST'])

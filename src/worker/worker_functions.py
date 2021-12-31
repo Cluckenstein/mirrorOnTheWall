@@ -381,6 +381,18 @@ if __name__ == '__main__':
     # cnx, cursor = connect(env_file='../../.env')
     # _ = check_last_update(cnx, cursor, 1,  path = '../calendar')
     # kill_connect(cnx, cursor)
+
+    data = {'title': 'Styinky stinkt', 'message': 'stinky is amazing', 'timer': 2000}
+    headers = {'Content-type': 'application/json'}
+
+
+    
+    r = requests.get('http://192.168.177.108:8082/api/config')#/api/module/alert/showalert' ,headers = headers, data = data)
+    
+    print(r)
+    
+    
+    
     
 
 
