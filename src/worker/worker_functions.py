@@ -9,13 +9,29 @@ Created on Wed Dec 23 21:40:35 2020
 import requests
 import json 
 
+
+def get_config():
+    r = requests.get('http://192.168.177.108:8082/api/config')
+    modules = r.json()['data']['modules']
+    return [{'name': k['module'], 'config':k['config']} for k in modules if 'config' in k.keys() ]
+
+
+def send_message(title, message , timer):
+    
+    if timer == '':
+        timer = 3000
+    
+    data = {'title': title, 'message': message, 'timer': 1000*int(timer)}
+    headers = {'Content-Type': 'application/json'}
+
+    r = requests.post('http://192.168.177.108:8082/api/module/alert/showalert' , headers = headers, data = json.dumps(data))
+    
+    return True
+
 if __name__ == '__main__':
     """Tester 
     """
     None
-    # cnx, cursor = connect(env_file='../../.env')
-    # _ = check_last_update(cnx, cursor, 1,  path = '../calendar')
-    # kill_connect(cnx, cursor)
 
     data = {'title': 'Styinky stinkt', 'message': 'stinky is amazing', 'timer': 2000}
     headers = {'Content-Type': 'application/json'}
@@ -26,9 +42,9 @@ if __name__ == '__main__':
     # r = requests.get('http://192.168.177.108:8082/api/module/alert/showalert?message=Stinky stinkt&timer=2000')
     
     
-    r = requests.post('http://192.168.177.108:8082/api/module/alert/showalert' , headers = headers, data = json.dumps(data))
-    
-    print(r, r.content)
+    # r = requests.post('http://192.168.177.108:8082/api/module/alert/showalert' , headers = headers, data = json.dumps(data))
+    r = requests.post('http://192.168.177.108:8082/api/module/compliments' , headers = headers, data = json.dumps(data))
+    print(r, r.json()['data'][0]['actions'])
     
     
     

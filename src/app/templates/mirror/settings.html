@@ -1,0 +1,36 @@
+{% extends "mirror/base.html" %}
+
+{% block content %}
+
+<button style ="margin:7px;" class="btn btn-secondary" onclick="send_message()">Mach mal</button>
+<ul class="legend">
+    <li> <div id ='title_not'></div>  </li> <br>
+    <li><div id ='mes_not'></div> </li> <br>
+    <li><div id ='timer_not'></div>  </li>
+</ul>
+<br>
+
+
+<table id="data_html" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Einstellungen</th>
+        </tr>
+    </thead>
+    <tbody id = "status_table">
+    </tbody>
+</table>
+<script type="text/javascript" src="{{ url_for('static', filename='mirror/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='mirror/func_status.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='mirror/jspdf.umd.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='mirror/jspdf.plugin.autotable.min.js') }}"></script>
+<script>
+    $body = $("body");
+
+  var tbl = JSON.parse('{{ tbl | tojson }}'); //data from db 
+  init_table(first = true)
+
+</script>
+
+{% endblock %}

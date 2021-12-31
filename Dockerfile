@@ -14,8 +14,6 @@ RUN pip3 install -r /src/requirements.txt
 
 RUN useradd --no-create-home nginx 
 
-
-
 RUN rm /etc/nginx/sites-enabled/default
 RUN rm -r /root/.cache
 
@@ -31,6 +29,6 @@ WORKDIR /src
 RUN chown -R nginx:nginx ./
 RUN chmod -R u+rwx ./
 
-# ENTRYPOINT [ "python3" ]
-# CMD [ "flask_webserver.py" ]
-CMD ["/usr/bin/supervisord"]
+ENTRYPOINT [ "python3" ]
+CMD [ "flask_webserver.py" ]
+# CMD ["/usr/bin/supervisord"]

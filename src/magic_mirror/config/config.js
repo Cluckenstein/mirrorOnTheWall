@@ -77,7 +77,7 @@ let config = {
 				type: "forecast",
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "YOUR_OPENWEATHER_API_KEY"
+				apiKey: "28f8833d6494314b297aba01d98a6f72"
 			}
 		},
 		{
@@ -103,7 +103,7 @@ let config = {
 		// you can hide this module afterwards from the remote control itself
 		config: {
 			customCommand: {},  // Optional, See "Using Custom Commands" below
-			showModuleApiMenu: true, // Optional, Enable the Module Controls menu
+			showModuleApiMenu: false, // Optional, Enable the Module Controls menu
 			secureEndpoints: false, // Optional, See API/README.md
 			// uncomment any of the lines below if you're gonna use it
 			// customMenu: "custom_menu.json", // Optional, See "Custom Menu Items" below
@@ -117,19 +117,4 @@ let config = {
 /*************** DO NOT EDIT THE LINE BELOW ***************/
 if (typeof module !== "undefined") {module.exports = config;}
 
-// {
-// 	module: 'MMM-Remote-Control',
-// 	// uncomment the following line to show the URL of the remote control on the mirror
-// 	position: 'bottom_left',
-// 	// you can hide this module afterwards from the remote control itself
-// 	config: {
-// 		customCommand: {},  // Optional, See "Using Custom Commands" below
-// 		showModuleApiMenu: true, // Optional, Enable the Module Controls menu
-// 		secureEndpoints: false, // Optional, See API/README.md
-// 		// uncomment any of the lines below if you're gonna use it
-// 		// customMenu: "custom_menu.json", // Optional, See "Custom Menu Items" below
-// 		// apiKey: "", // Optional, See API/README.md for details
-// 		// classes: {} // Optional, See "Custom Classes" below
-// 	}
-// },
 		

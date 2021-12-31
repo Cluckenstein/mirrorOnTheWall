@@ -1,6 +1,15 @@
 version: "3"
 services:
- magic_mirror:
+  mirror_on_the_wall:
+    container_name: mirror_steuer
+    environment:
+        TZ: "Europe/Berlin"
+    build: .
+    restart: always
+    ports:
+      - "8081:80"
+
+  magic_mirror:
     container_name: mirror_magic
     image: karsten13/magicmirror:latest
     ports:
@@ -13,15 +22,6 @@ services:
       - npm
       - run
       - server
-
-  # mirror_on_the_wall:
-  #   container_name: mirror_steuer
-  #   environment:
-  #       TZ: "Europe/Berlin"
-  #   build: .
-  #   restart: always
-  #   ports:
-  #     - "8081:80"
 
 
 

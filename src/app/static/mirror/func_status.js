@@ -18,8 +18,56 @@ function init_table(first = false) {
   /*
   Init table to sort all future events and fill the table for the first time or after entries
   */
-
     fill_table(first) // if an entry is made keep the oldd sorting  
+    message_sender()
+}
+
+function message_sender() { 
+
+  let title = document.getElementById('title_not');
+  var name_in = document.createElement("input")
+  name_in.type = 'text'
+  name_in.id = 'title_name'
+  name_in.value = '' 
+  title.appendChild(name_in)  
+  
+  let message = document.getElementById('mes_not');
+  var mes_in = document.createElement("input")
+  mes_in.type = 'text'
+  mes_in.id = 'mes_name'
+  mes_in.value = '' 
+  message.appendChild(mes_in)   
+
+  let timer = document.getElementById('timer_not');
+  var timer_in = document.createElement("input")
+  timer_in.type = 'text'
+  timer_in.id = 'timer_name'
+  timer_in.value = '' 
+  timer.appendChild(timer_in)   
+
+}
+
+function send_message() {
+
+  var tit = document.getElementById('title_name').value
+  var messi = document.getElementById('mes_name').value
+  var timi = document.getElementById('timer_name').value 
+
+
+  $.ajax({
+    type : 'POST',
+    cache : false,
+    url: "/send_message/",  
+    contentType:"application/json",
+    data : JSON.stringify({'title': tit, 'message': messi, 'timer':timi }),
+    dataType: 'json',
+    success : function(response){   
+        console.log('message sent')
+
+    }
+});
+
+
 }
 
 function fill_table(first){
@@ -28,111 +76,22 @@ function fill_table(first){
   Fills the table front end according to the current sorting 
   */
 
-//   var temp_tbl = []
-//   var now = Math.floor(Date.now() / 1000)
-//   for (var i = 0; i<tbl.length; i++){ // no future events are shown 
-//         if (now > tbl[i][1]) {
-//             temp_tbl.push(tbl[i])
-//         }
-//   }
-
   document.getElementById('status_table').innerHTML = '';
   const table_html = document.getElementById("status_table");
 
-
-  let html_row = table_html.insertRow();
-  
-  let trai = html_row.insertCell(0);
-  var trai_in = document.createElement("input")
-  trai_in.type = 'text'
-  trai_in.id = 'input_name'
-  trai_in.value = '' 
-  trai.appendChild(trai_in)   
-
-  let stat_date = html_row.insertCell(1);
-  var stat_date_in = document.createElement("input")
-  stat_date_in.type = 'date'
-  stat_date_in.id = 'input_stat'
-  let init_date = new Date()
-  stat_date_in.value= String(init_date.getFullYear()) + '-' + String(init_date.getMonth()+1) + '-' + String(init_date.getDate())
-  stat_date.appendChild(stat_date_in)  
-
-  let boost = html_row.insertCell(2);
-  var boost_in = document.createElement("input")
-  boost_in.id = 'input_boostered'
-  boost_in.type = 'checkbox'
-  boost_in.value = '' 
-  boost.appendChild(boost_in)   
-
-  let auth = html_row.insertCell(3);
-  var auth_in = document.createElement("input")
-  auth_in.id = 'input_author'
-  auth_in.type = 'text'
-  auth_in.value = '' 
-  auth_in.style = "width: 8em;"  
-  auth.appendChild(auth_in) 
-
-  let ent_date_entered = html_row.insertCell(4);
-  let datum_ent = new Date()
-  let value = datum_ent.toLocaleString().replaceAll('/','.').replaceAll(',', ' ').slice(0, 10)
-  ent_date_entered.id = 'input_ent'
-  ent_date_entered.innerHTML = String(value); 
-
-  let sav_but = html_row.insertCell(5); //calendar week 
-  var sav_but_in = document.createElement("button")
-  sav_but_in.className = "btn btn-secondary"
-  sav_but_in.onclick = function(){save_name(document.getElementById('input_name').value)}
-  sav_but_in.innerHTML = 'Sichern'
-  sav_but.appendChild(sav_but_in)  
-
   for (var row of tbl) { 
-      let datum = new Date(row[1]*1000)
-      let datum_enter = new Date(row[3]*1000)
-      
       let html_row = table_html.insertRow(); //init new row 
 
-      let wee = html_row.insertCell(0); 
-      wee.innerHTML = String(row[0]);
+      let name = html_row.insertCell(0); 
+      name.innerHTML = String(row['name']);
+
+      let config = html_row.insertCell(1); 
+      let conf = ''
+      for (var [na, val] of Object.entries(row.config)){ 
+        conf += String(na)+' : '+String(val)+'<br>'
+      }
+      config.innerHTML = conf;
   
-      let date = html_row.insertCell(1); //date formattedd to string 
-      let value = datum.toLocaleString().replaceAll('/','.').replaceAll(',', ' ').slice(0, 10)
-      date.innerHTML = String(value);
-
-      let boost = html_row.insertCell(2); //booster
-      if (row[2] == '1'){
-        boost.innerHTML = String('√');
-      } else {
-        boost.innerHTML = String('X');
-      }
-
-
-      let auth = html_row.insertCell(3); //author
-      auth.innerHTML = String(row[4]);
-
-      let date_enter = html_row.insertCell(4); //datum eingetragen
-      let value_enter = datum_enter.toLocaleString().replaceAll('/','.').replaceAll(',', ' ').slice(0, 10)
-      date_enter.innerHTML = String(value_enter);
-
-      let del_but = html_row.insertCell(5); //calendar week 
-      var del_but_in = document.createElement("button")
-      del_but_in.className = "btn btn-secondary"
-      del_but_in.id = String(row[0])
-      changer = String(row[0])
-      del_but_in.onclick = help_del
-      del_but_in.innerHTML = 'Entfernen'
-      del_but.appendChild(del_but_in)  
-
-      // var sixMonthBeforeNow = new Date(new Date().setMonth(new Date().getMonth() - 6))
-
-      // if (datum.getTime() < sixMonthBeforeNow){ // Tage * stunden * minuten * sekunden = 6 monate
-      if (row[2] != '1'){
-        html_row.style.backgroundColor = "orange"
-      } else {
-        html_row.style.backgroundColor = "green"
-      }
-  }
-  if (first == true){
-    get_ath_trainings()
   }
 }
 
