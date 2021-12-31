@@ -1,14 +1,5 @@
-/* Magic Mirror Config Sample
- *
- * By Michael Teeuw https://michaelteeuw.nl
- * MIT Licensed.
- *
- * For more information on how you can configure this file
- * see https://docs.magicmirror.builders/getting-started/configuration.html#general
- * and https://docs.magicmirror.builders/modules/configuration.html
- */
 let config = {
-	address: "localhost", 	// Address to listen on, can be:
+	address: "0.0.0.0", 	// Address to listen on, can be:
 							// - "localhost", "127.0.0.1", "::1" to listen on loopback interface
 							// - another specific IPv4/6 to listen on a specific interface
 							// - "0.0.0.0", "::" to listen on any interface
@@ -16,11 +7,11 @@ let config = {
 	port: 8080,
 	basePath: "/", 	// The URL path where MagicMirror is hosted. If you are using a Reverse proxy
 					// you must set the sub path here. basePath must end with a /
-	ipWhitelist: [],//["127.0.0.1", "::ffff:127.0.0.1", "::1"], 	// Set [] to allow all IP addresses
-															// or add a specific IPv4 of 192.168.1.5 :
-															// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
-															// or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
-															// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
+	ipWhitelist: [], 	// Set [] to allow all IP addresses
+										// or add a specific IPv4 of 192.168.1.5 :
+										// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
+										// or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
+										// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
 
 	useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
 	httpsPrivateKey: "", 	// HTTPS private key path, only require when useHttps is true
@@ -105,12 +96,26 @@ let config = {
 				broadcastNewsUpdates: true
 			}
 		},
+		{
+		module: 'MMM-Remote-Control',
+		// uncomment the following line to show the URL of the remote control on the mirror
+		position: 'bottom_left',
+		// you can hide this module afterwards from the remote control itself
+		config: {
+			customCommand: {},  // Optional, See "Using Custom Commands" below
+			showModuleApiMenu: true, // Optional, Enable the Module Controls menu
+			secureEndpoints: false, // Optional, See API/README.md
+			// uncomment any of the lines below if you're gonna use it
+			// customMenu: "custom_menu.json", // Optional, See "Custom Menu Items" below
+			// apiKey: "", // Optional, See API/README.md for details
+			// classes: {} // Optional, See "Custom Classes" below
+		}
+	},
 	]
 };
 
 /*************** DO NOT EDIT THE LINE BELOW ***************/
 if (typeof module !== "undefined") {module.exports = config;}
-
 
 // {
 // 	module: 'MMM-Remote-Control',
