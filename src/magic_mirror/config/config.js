@@ -42,14 +42,14 @@ let config = {
 		},
 		{
 			module: "calendar",
-			header: "US Holidays",
+			header: "Training",
 			position: "top_left",
 			config: {
 				calendars: [
 					{
 						symbol: "calendar-check",
-						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"
-					}
+						url: "https://www.reihn.de/update_calender/1VItIaXahzWFOgy5PIowr22G/"
+					}, 
 				]
 			}
 		},
@@ -81,14 +81,27 @@ let config = {
 			config: {
 				feeds: [
 					{
-						title: "New York Times",
-						url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-					}
+						title: "Reuters Financial",
+						url: "https://ir.thomsonreuters.com/rss/news-releases.xml"
+					},
+					{
+						title: "Reuters Financial",
+						url: "https://ir.thomsonreuters.com/rss/events.xml"
+					},
+					{
+						title: "Tagesschau Newsticker",
+						url: "https://www.tagesschau.de/newsticker.rdf"
+					},
+					{
+						title: "Tagesschau",
+						url: "https://www.tagesschau.de/xml/rss2/"
+					},
+	
 				],
 				showSourceTitle: true,
 				showPublishDate: true,
 				broadcastNewsFeeds: true,
-				broadcastNewsUpdates: true
+				broadcastNewsUpdates: true,
 			}
 		},
 		{
