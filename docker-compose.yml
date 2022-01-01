@@ -22,11 +22,6 @@ services:
       sh -c "cd modules/MMM-Remote-Control && npm install && cd ../.. && npm run server"
 
 
-# command:
-      # - npm
-      # - run
-      # - server
-
 
 
 
