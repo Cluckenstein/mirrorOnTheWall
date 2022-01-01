@@ -18,10 +18,14 @@ services:
       - ${MM_MODULES_MOUNT}
       - ${MM_CONFIG_MOUNT}
     restart: unless-stopped
-    command: 
-      - npm
-      - run
-      - server
+    command: >
+      sh -c "cd modules/MMM-Remote-Control && npm install && cd ../.. && npm run server"
+
+
+# command:
+      # - npm
+      # - run
+      # - server
 
 
 
