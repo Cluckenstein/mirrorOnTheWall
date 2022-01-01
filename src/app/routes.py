@@ -36,7 +36,9 @@ def message():
     message = request.json['message']
     timer = request.json['timer']
 
-    _ = worker.send_message(title, message, timer)
+    try:
+        _ = worker.send_message(title, message, timer)
+        return 200
+    except:
+        return 404
 
-
-    return 'Success'

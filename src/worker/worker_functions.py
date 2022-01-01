@@ -11,7 +11,7 @@ import json
 
 
 def get_config():
-    r = requests.get('http://192.168.177.108:8082/api/config')
+    r = requests.get('http://192.168.178.26:8082/api/config')
     modules = r.json()['data']['modules']
     return [{'name': k['module'], 'config':k['config']} for k in modules if 'config' in k.keys() ]
 
@@ -24,7 +24,7 @@ def send_message(title, message , timer):
     data = {'title': title, 'message': message, 'timer': 1000*int(timer)}
     headers = {'Content-Type': 'application/json'}
 
-    r = requests.post('http://192.168.177.108:8082/api/module/alert/showalert' , headers = headers, data = json.dumps(data))
+    r = requests.post('http://192.168.178.26:8082/api/module/alert/showalert' , headers = headers, data = json.dumps(data))
     
     return True
 
@@ -38,13 +38,13 @@ if __name__ == '__main__':
 
 
     
-    # r = requests.get('http://192.168.177.108:8082/api/config')
+    r = requests.get('http://192.168.178.26:8082/api/config')
     # r = requests.get('http://192.168.177.108:8082/api/module/alert/showalert?message=Stinky stinkt&timer=2000')
     
     
     # r = requests.post('http://192.168.177.108:8082/api/module/alert/showalert' , headers = headers, data = json.dumps(data))
-    r = requests.post('http://192.168.177.108:8082/api/module/compliments' , headers = headers, data = json.dumps(data))
-    print(r, r.json()['data'][0]['actions'])
+    # r = requests.post('http://192.168.177.108:8082/api/module/compliments' , headers = headers, data = json.dumps(data))
+    print(r)#, r.json())#['data'][0]['actions'])
     
     
     

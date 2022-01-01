@@ -2,13 +2,12 @@
 
 {% block content %}
 
-<button style ="margin:7px;" class="btn btn-secondary" onclick="send_message()">Mach mal</button>
-<ul class="legend">
-    <li> <div id ='title_not'></div>  </li> <br>
-    <li><div id ='mes_not'></div> </li> <br>
-    <li><div id ='timer_not'></div>  </li>
-</ul>
-<br>
+
+
+<div id = 'button_not'></div><br>
+<div id ='title_not'></div><br>
+<div id ='mes_not'></div><br>
+<div id ='timer_not'></div><br>
 
 
 <table id="data_html" class="table table-striped">
@@ -29,7 +28,7 @@
     $body = $("body");
 
   var tbl = JSON.parse('{{ tbl | tojson }}'); //data from db 
-  init_table(first = true)
+  init_page()
 
 </script>
 
