@@ -33,13 +33,14 @@ if __name__ == '__main__':
     """
     None
 
-    data = {'title': 'Styinky stinkt', 'message': 'stinky is amazing', 'timer': 2000}
+    data = {'title': 'Styinky stinkt', 'message': 'stinky is amazing', 'timer': 5000, 'imageUrl': 'https://cdn.prod.www.spiegel.de/images/ca38ce6d-0001-0005-0000-000000862775_w750_r1.5_fpx47.34_fpy47.jpg'}
     headers = {'Content-Type': 'application/json'}
 
 
     
     r = requests.get('http://192.168.178.26:8082/api/config')
     # r = requests.get('http://192.168.177.108:8082/api/module/alert/showalert?message=Stinky stinkt&timer=2000')
+
     
     
     # r = requests.post('http://192.168.177.108:8082/api/module/alert/showalert' , headers = headers, data = json.dumps(data))
