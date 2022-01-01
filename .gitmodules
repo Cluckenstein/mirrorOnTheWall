@@ -1,0 +1,3 @@
+[submodule "src/magic_mirror/modules/MMM-Remote-Control"]
+	path = src/magic_mirror/modules/MMM-Remote-Control
+	url = https://github.com/Jopyth/MMM-Remote-Control.git
