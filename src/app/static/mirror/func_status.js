@@ -1,4 +1,4 @@
-
+var modules = null
   
 function init_page() {
   /*
@@ -6,6 +6,69 @@ function init_page() {
   */
     fill_table() // if an entry is made keep the oldd sorting  
     message_sender()
+    get_modules()
+}
+
+function get_modules(){
+  $.ajax({
+    type : 'POST',
+    cache : false,
+    url: "/get_modules/",  
+    success : function(response){   
+      if (typeof response == 'object') {
+        modules = response
+        fill_modules()
+      } else {
+        console.log('shitty response')
+      }
+    }
+  });
+}
+
+function fill_modules(){
+  let mod_menu = document.getElementById('show_module_menu')
+
+  for (var mod in modules){
+    for (var ident in modules[mod]){
+      let mod_div = document.createElement('div')
+      mod_div.className = "form-check form-switch"
+
+      let mod_switch = document.createElement('input')
+      mod_switch.type = "checkbox"
+      mod_switch.checked = !modules[mod][ident]['hidden']
+      mod_switch.setAttribute("role", "switch");
+      mod_switch.className = "form-check-input"
+      mod_switch.id = modules[mod][ident]['identifier']+"_checkbox"
+      mod_switch.addEventListener('change', function() {
+          send_view_change(this.id, this.checked)
+      });
+      mod_div.appendChild(mod_switch)
+
+      let mod_label = document.createElement('label')
+      mod_label.className = "form-check-label"
+      mod_label.htmlFor = modules[mod][ident]['identifier']+"_checkbox"
+      mod_label.innerHTML = modules[mod][ident]['switch_name']
+      mod_div.append(mod_label)
+
+      mod_menu.appendChild(mod_div)
+    }
+    
+  }
+}
+
+function send_view_change(id, status){
+  $.ajax({
+    type : 'POST',
+    cache : false,
+    url: "/send_view_change/",  
+    contentType:"application/json",
+    data : JSON.stringify({'id': id, 'status': status}),
+    dataType: 'json',
+    success : function(response){   
+        console.log('status sent')
+    },
+    error: function () { document.getElementById(id).checked = !document.getElementById(id).checked }
+  });
 }
 
 function message_sender() { 
@@ -14,7 +77,7 @@ function message_sender() {
   var but_in = document.createElement('button')
   but_in.className = "btn btn-secondary"
   but_in.margin = "7px"
-  but_in.onclick = send_message()
+  but_in.onclick = function(){send_message()}
   but_in.innerHTML = 'Just send it!'
   but.appendChild(but_in)
 

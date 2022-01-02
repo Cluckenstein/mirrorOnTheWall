@@ -49,6 +49,9 @@ var Remote = {
      * argument payload mixed - The payload of the notification.
      */
     sendSocketNotification: function(notification, payload) {
+        console.log(notification)
+        console.log(payload)
+        console.log(this.socket())
         this.socket().sendNotification(notification, payload);
     },
 
@@ -594,6 +597,7 @@ var Remote = {
 
         self.loadToggleButton(moduleBox, function(toggledOn, event) {
             if (toggledOn) {
+                console.log(event.currentTarget)
                 if (self.hasClass(event.currentTarget, "external-locked")) {
                     var wrapper = document.createElement("div");
                     var warning = document.createElement("span");

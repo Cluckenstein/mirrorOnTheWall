@@ -8,17 +8,16 @@ Created on Wed Dec 23 21:40:35 2020
 
 import requests
 import json 
-import socket
 
 def get_config():
-    ip_network = socket.gethostbyname(socket.gethostname())
+    ip_network = parse_env('.env')['IP_OWN']
     r = requests.get('http://%s:8082/api/config'%(ip_network))
     modules = r.json()['data']['modules']
     return [{'name': k['module'], 'config':k['config']} for k in modules if 'config' in k.keys() ]
 
 
-def send_message(title, message , timer):
-    ip_network = socket.gethostbyname(socket.gethostname())
+def send_message(title, message , timer, env_path = '.env'):
+    ip_network = parse_env(env_path)['IP_OWN']
     if timer == '':
         timer = 3000
     
@@ -29,26 +28,77 @@ def send_message(title, message , timer):
     
     return True
 
+
+def parse_env(path):
+    """Parses vars from env file 
+
+    Args:
+        path (str): path to .env fil 
+
+    Returns:
+        dict: alle env vars and their names
+    """
+    env_vars = {}
+    with open(path) as f:
+        for line in f:
+            if line.startswith('#') or not line.strip():
+                continue
+            key, value = line.strip().split('=', 1)
+            env_vars[key] = value
+    return env_vars
+
+
+def get_modules(env_path = '.env'):
+    ip_network = parse_env(env_path)['IP_OWN']
+    r = requests.get('http://%s:8082/api/module'%(ip_network))
+    dic = r.json()
+    
+    mods = {}
+    
+    for modul in dic['data']:
+        if modul['name'] not in mods:
+            mods[modul['name']] = []
+           
+        mods[modul['name']].append(modul)
+        
+        if modul['name'] == 'weather':
+            switch_name = modul['name'][0].upper()+modul['name'][1:] + ' ' + modul['config']['location']
+        else:
+            switch_name = modul['name'][0].upper()+modul['name'][1:]
+            
+        mods[modul['name']][-1]['switch_name'] = switch_name
+    
+    return mods 
+
+
+def change_view(id, status, env_path = '.env'):
+    ip_network = parse_env(env_path)['IP_OWN']
+    print(id)
+    print(status)
+    print(ip_network)
+    if status:
+        changer = 'show'
+    else:
+        changer = 'hide'
+     
+    r = requests.get('http://%s:8082/api/module/%s/%s'%(ip_network, id, changer))
+       
+    return True
+
 if __name__ == '__main__':
     """Tester 
     """
     None
 
-    data = {'title': 'Styinky stinkt', 'message': 'stinky is amazing', 'timer': 5000, 'imageUrl': 'https://cdn.prod.www.spiegel.de/images/ca38ce6d-0001-0005-0000-000000862775_w750_r1.5_fpx47.34_fpy47.jpg'}
+    data = {'position': 'top_right'}
     headers = {'Content-Type': 'application/json'}
+    r = requests.post("http://192.168.177.108:8082/api/module/clock", headers = headers)#, data = json.dumps(data))
+    print(r, r.json())
+        
 
-
+    # r = requests.post('http://192.168.177.108:8081/send_view_change/' , headers = headers, data = json.dumps(data))
     
-    r = requests.get('http://192.168.178.26:8082/api/config')
-    # r = requests.get('http://192.168.177.108:8082/api/module/alert/showalert?message=Stinky stinkt&timer=2000')
-
-    
-    
-    # r = requests.post('http://192.168.177.108:8082/api/module/alert/showalert' , headers = headers, data = json.dumps(data))
-    # r = requests.post('http://192.168.177.108:8082/api/module/compliments' , headers = headers, data = json.dumps(data))
-    print(r)#, r.json())#['data'][0]['actions'])
-    
-    
+    # print(r)
     
     
 

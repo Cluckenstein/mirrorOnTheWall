@@ -38,7 +38,36 @@ def message():
 
     try:
         _ = worker.send_message(title, message, timer)
-        return 200
+        return 'Success'
     except:
-        return 404
+        return 'Failed'
+    
+@app.route('/get_modules/', methods=['POST'])
+def get_mods():
+    """If an entry is saved this evaluates, writes to db and responds with updatet data 
+
+    Returns:
+        jsonified new data: list of lists
+    """
+    
+    try:
+        modules = worker.get_modules()
+        return jsonify(modules)
+    except:
+        return 'Failed'
+    
+@app.route('/send_view_change/', methods=['POST'])
+def change_view():
+    """If an entry is saved this evaluates, writes to db and responds with updatet data 
+
+    Returns:
+        jsonified new data: list of lists
+    """
+    
+    try:
+        _ = worker.change_view(request.json['id'][:-9], request.json['status'])
+        return 'Success'
+    except:
+        return 'Failed'
+
 
