@@ -1,15 +1,55 @@
 var modules = null
+
   
 function init_page() {
   /*
   Init table to sort all future events and fill the table for the first time or after entries
   */
-    fill_table() // if an entry is made keep the oldd sorting  
-    message_sender()
-    get_modules()
+  link_menu()
 }
 
-function get_modules(){
+function link_menu(){
+  document.getElementById("anzeige_menu_button").addEventListener("click", function() {
+    show_menu('anzeige')
+  });
+  document.getElementById("message_menu_button").addEventListener("click", function() {
+    show_menu('message')
+  });  
+  document.getElementById("kalender_menu_button").addEventListener("click", function() {
+    show_menu('kalender')
+  }); 
+  document.getElementById("wetter_menu_button").addEventListener("click", function() {
+    show_menu('wetter')
+  }); 
+  document.getElementById("news_menu_button").addEventListener("click", function() {
+    show_menu('news')
+  }); 
+}
+
+function show_menu(this_menu){
+  empty_menus()
+  if (this_menu=='anzeige'){
+    show_anzeige_menu()
+  } else if (this_menu=='message'){
+    show_message_menu()
+  } else if (this_menu=='kalender'){
+    show_kalender_menu()
+  } else if (this_menu=='wetter'){
+    null
+  } else if (this_menu=='news'){
+    null
+  }
+}
+
+function empty_menus(){
+  document.getElementById('show_module_menu').innerHTML = ''
+  document.getElementById('show_message_menu').innerHTML = ''
+  document.getElementById('show_kalender_menu').innerHTML = ''
+  document.getElementById('show_wetter_menu').innerHTML = ''
+  document.getElementById('show_news_menu').innerHTML = ''
+}
+
+function show_anzeige_menu(){
   $.ajax({
     type : 'POST',
     cache : false,
@@ -51,9 +91,19 @@ function fill_modules(){
       mod_div.append(mod_label)
 
       mod_menu.appendChild(mod_div)
-    }
-    
+    } 
   }
+
+  let mod_but = document.createElement('button')
+  mod_but.className = "btn btn-secondary"
+  mod_but.onclick = function(){save_settings()}
+  mod_but.innerHTML = 'Als Standard speichern'
+
+  mod_menu.appendChild(mod_but)
+}
+
+function save_settings(){
+  null
 }
 
 function send_view_change(id, status){
@@ -67,41 +117,44 @@ function send_view_change(id, status){
     success : function(response){   
         console.log('status sent')
     },
-    error: function () { document.getElementById(id).checked = !document.getElementById(id).checked }
+    error: function (response) { 
+      console.log(response) 
+    }
   });
 }
 
-function message_sender() { 
+function show_message_menu(){
+  let mod_menu = document.getElementById('show_message_menu')
+  let input_labels = [['Titel', 'title_name'], ['Nachricht', 'mes_name'], ['Timer','timer_name']]
 
-  let but = document.getElementById('button_not')
-  var but_in = document.createElement('button')
-  but_in.className = "btn btn-secondary"
-  but_in.margin = "7px"
-  but_in.onclick = function(){send_message()}
-  but_in.innerHTML = 'Just send it!'
-  but.appendChild(but_in)
-
-  let title = document.getElementById('title_not');
-  var name_in = document.createElement("input")
-  name_in.type = 'text'
-  name_in.id = 'title_name'
-  name_in.value = '' 
-  title.appendChild(name_in)  
+  for (var cur in input_labels){
+    let input_div = document.createElement('div')
+    input_div.className = "input-group mb-3"
   
-  let message = document.getElementById('mes_not');
-  var mes_in = document.createElement("input")
-  mes_in.type = 'text'
-  mes_in.id = 'mes_name'
-  mes_in.value = '' 
-  message.appendChild(mes_in)   
+    let label_div = document.createElement('div')
+    label_div.className = "input-group-prepend"
+    label_div.style = "width:110px;"
+    let label_span = document.createElement('span')
+    label_span.className = "input-group-text"
+    label_span.innerHTML = input_labels[cur][0]
+    label_div.appendChild(label_span)
+    input_div.appendChild(label_div)
+  
+    let input_field = document.createElement('input')
+    input_field.type = 'text'
+    input_field.className = 'form-control'
+    input_field.id = input_labels[cur][1]
+    input_div.appendChild(input_field)
 
-  let timer = document.getElementById('timer_not');
-  var timer_in = document.createElement("input")
-  timer_in.type = 'text'
-  timer_in.id = 'timer_name'
-  timer_in.value = '' 
-  timer.appendChild(timer_in)   
+    mod_menu.appendChild(input_div)
+  }
 
+  let mod_but = document.createElement('button')
+  mod_but.className = "btn btn-secondary"
+  mod_but.onclick = function(){send_message()}
+  mod_but.innerHTML = 'Schick es ab !'
+
+  mod_menu.appendChild(mod_but)
 }
 
 function send_message() {
@@ -124,27 +177,6 @@ function send_message() {
   });
 }
 
-function fill_table(){
-
-  /*
-  Fills the table front end according to the current sorting 
-  */
-
-  document.getElementById('status_table').innerHTML = '';
-  const table_html = document.getElementById("status_table");
-
-  for (var row of tbl) { 
-      let html_row = table_html.insertRow(); //init new row 
-
-      let name = html_row.insertCell(0); 
-      name.innerHTML = String(row['name']);
-
-      let config = html_row.insertCell(1); 
-      let conf = ''
-      for (var [na, val] of Object.entries(row.config)){ 
-        conf += String(na)+' : '+String(val)+'<br>'
-      }
-      config.innerHTML = conf;
-  
-  }
+function show_kalender_menu(){
+  null
 }

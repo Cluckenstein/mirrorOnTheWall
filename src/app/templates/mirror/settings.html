@@ -2,24 +2,24 @@
 
 {% block content %}
 
+<div id="mySidenav" class="sidenav" style="width:200px;">
+    <a href="#" id='anzeige_menu_button'>Anzeige</a>
+    <a href="#" id='message_menu_button'>Nachrichten</a>
+    <a href="#" id='kalender_menu_button'>Kalender</a>
+    <a href="#" id='wetter_menu_button'>Wetter</a>
+    <a href="#" id='news_menu_button'>News</a>
+</div>
 
-<div id = 'button_not'></div><br>
-<div id ='title_not'></div><br>
-<div id ='mes_not'></div><br>
-<div id ='timer_not'></div><br>
+<div id="main_page" style="margin-left:200px;">
 
-<div id='show_module_menu'></div><br>
+    <div id='show_module_menu'></div>
+    <div id='show_message_menu'></div>
+    <div id='show_kalender_menu'></div>
+    <div id='show_wetter_menu'></div>
+    <div id='show_news_menu'></div>
 
-<table id="data_html" class="table table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Einstellungen</th>
-        </tr>
-    </thead>
-    <tbody id = "status_table">
-    </tbody>
-</table>
+</div>
+
 <script type="text/javascript" src="{{ url_for('static', filename='mirror/jquery.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='mirror/func_status.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='mirror/jspdf.umd.js') }}"></script>

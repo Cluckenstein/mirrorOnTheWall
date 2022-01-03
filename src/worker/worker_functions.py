@@ -73,9 +73,6 @@ def get_modules(env_path = '.env'):
 
 def change_view(id, status, env_path = '.env'):
     ip_network = parse_env(env_path)['IP_OWN']
-    print(id)
-    print(status)
-    print(ip_network)
     if status:
         changer = 'show'
     else:

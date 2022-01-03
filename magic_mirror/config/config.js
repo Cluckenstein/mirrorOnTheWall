@@ -50,6 +50,10 @@ let config = {
 						symbol: "calendar-check",
 						url: "https://www.reihn.de/update_calender/1VItIaXahzWFOgy5PIowr22G/"
 					}, 
+					{
+						symbol: "calendar-check",
+						url: "https://www.schulferien.org/media/ical/deutschland/ferien_baden-wuerttemberg_2022.ics?k=PAx4TzQPf8emjgDaZdVDTR6P7reGB7U1ln_UDVuXUIB_90G_n0JH465GcCOzFWFQ-2e4g6aanN0M4pjJox_Gt7J4-XZOUkbEN9npazgTrns"
+					}, 
 				]
 			}
 		},
