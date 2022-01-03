@@ -3,20 +3,20 @@
 {% block content %}
 
 <div id="mySidenav" class="sidenav" style="width:200px;">
-    <a href="#" id='anzeige_menu_button'>Anzeige</a>
-    <a href="#" id='message_menu_button'>Nachrichten</a>
-    <a href="#" id='kalender_menu_button'>Kalender</a>
-    <a href="#" id='wetter_menu_button'>Wetter</a>
-    <a href="#" id='news_menu_button'>News</a>
+    <a href="#" id="anzeige_menu_button">Display</a>
+    <a href="#" id="message_menu_button">Message</a>
+    <a href="#" id="kalender_menu_button">Calendar</a>
+    <a href="#" id="wetter_menu_button">Weather</a>
+    <a href="#" id="news_menu_button">News</a>
 </div>
 
 <div id="main_page" style="margin-left:200px;">
 
-    <div id='show_module_menu'></div>
-    <div id='show_message_menu'></div>
-    <div id='show_kalender_menu'></div>
-    <div id='show_wetter_menu'></div>
-    <div id='show_news_menu'></div>
+    <div id="show_module_menu"></div>
+    <div id="show_message_menu"></div>
+    <div id="show_kalender_menu"></div>
+    <div id="show_wetter_menu"></div>
+    <div id="show_news_menu"></div>
 
 </div>
 
@@ -27,7 +27,6 @@
 <script>
     $body = $("body");
 
-  var tbl = JSON.parse('{{ tbl | tojson }}'); //data from db 
   init_page()
 
 </script>

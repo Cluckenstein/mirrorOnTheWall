@@ -20,8 +20,7 @@ def table_status():
     Returns:
         render html and data: renders page and gives list of lists to frontend 
     """
-    data_json = worker.get_config()
-    return render_template('mirror/settings.html', tbl = data_json)
+    return render_template('mirror/settings.html')
 
 
 @app.route('/send_message/', methods=['POST'])
@@ -71,3 +70,34 @@ def change_view():
         return 'Failed'
 
 
+@app.route('/get_settings/', methods=['POST'])
+def get_settings():
+    """If an entry is saved this evaluates, writes to db and responds with updatet data 
+
+    Returns:
+        jsonified new data: list of lists
+    """
+    
+    try:
+        settings = worker.load_settings()
+        return jsonify(settings)
+    except:
+        return 'Failed'
+    
+@app.route('/save_settings/', methods=['POST'])
+def save_settings():
+    """If an entry is saved this evaluates, writes to db and responds with updatet data 
+
+    Returns:
+        jsonified new data: list of lists
+    """
+    new_settings = request.json
+    
+    try:
+        settings = worker.save_settings(new_settings)
+        return jsonify(settings)
+    except:
+        return 'Failed'
+    
+
+   
