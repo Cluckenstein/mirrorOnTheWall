@@ -22,7 +22,7 @@ COPY /server-conf/flask-site-nginx.conf /etc/nginx/conf.d/
 COPY /server-conf/uwsgi.ini /etc/uwsgi/
 COPY /server-conf/supervisord.conf /etc/
 
-COPY . /src
+# COPY . /src
 
 # USER root
 WORKDIR /src

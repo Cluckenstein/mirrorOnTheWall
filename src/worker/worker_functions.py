@@ -89,8 +89,10 @@ def mod_config(config_path = "magic_mirror/settings/settings_display.json", serv
     with open(config_path, "r") as f:
         our_config = json.load(f)
         
+        
     with open(server_config_path, "r") as f:
         server_config = json.load(f)
+        
         
     
     for module in our_config:
@@ -121,10 +123,12 @@ def mod_config(config_path = "magic_mirror/settings/settings_display.json", serv
     with open(server_config_path, "w") as f:
         json.dump(server_config, f, indent=4)
         
+        
     new_config = [server_config[k] for k in server_config]
     
     with open(server_js, "r") as f:
         js_text = f.read()
+        
         
     js_begin = js_text.index("// BEGIN PARSER")
     js_end = js_text.index("// END PARSER")
@@ -132,12 +136,13 @@ def mod_config(config_path = "magic_mirror/settings/settings_display.json", serv
     js_head = js_text[:js_begin + len("// BEGIN PARSER")] + "\n"
     js_tail = "\n"+ js_text[js_end:]
     
-    js_txt = js_head + "modules:" + str(new_config) + js_tail
+    js_text = js_head + "modules:" + str(new_config) + js_tail
+    js_text = js_text.replace("True", "true").replace("False","false")
+
     
-    with open(server_js, "w") as f:
-        f.write(js_txt)
-        
-        
+    with open(server_js, "w") as new_config_file:
+        new_config_file.write(js_text)
+ 
     ip_network = parse_env(".env")["IP_OWN"]
     r = requests.get("http://%s:8082/api/refresh"%(ip_network))
         
@@ -145,9 +150,10 @@ def mod_config(config_path = "magic_mirror/settings/settings_display.json", serv
                     
    
 def save_settings(changes, config_path = "magic_mirror/settings/settings_display.json", server_config_path = "magic_mirror/config/server_config.json", server_js = "magic_mirror/config/config.js"):
-    
+    print(changes)
     with open(config_path, "w") as f:
         json.dump(changes, f)
+        
 
     _ = mod_config(config_path, server_config_path, server_js)
         
@@ -158,6 +164,7 @@ def load_settings(config_path = "magic_mirror/settings/settings_display.json", s
     
     with open(config_path, "r") as f:
         our_config = json.load(f)
+        
         
     _ = mod_config(config_path, server_config_path, server_js)
     
@@ -171,6 +178,7 @@ if __name__ == "__main__":
     """
     None
 
+
     # data = {"position": "top_right"}
     # headers = {"Content-Type": "application/json"}
     # r = requests.post("http://192.168.177.108:8082/api/module/clock", headers = headers)#, data = json.dumps(data))
@@ -181,7 +189,7 @@ if __name__ == "__main__":
     # print(r)
     
     # mod_config(config_path = "../../magic_mirror/settings/settings_display.json", server_config_path = "../../magic_mirror/config/server_config_test.json", server_js = "../../magic_mirror/config/config_test.js")
-    r = requests.get("http://192.168.177.108:8082/api/module")
+    r = requests.get("http://192.168.177.108:8082/api/module/module_8_newsfeed/hide")
     
     print(r, r.json())
     

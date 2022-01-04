@@ -8,6 +8,10 @@ services:
     restart: always
     ports:
       - "8081:80"
+    volumes:
+      - ${ALL_SOURCES}
+      # - ${STEUER_SETTINGS_MOUNT}
+      # - ${STEUER_CONFIG_MOUNT}
 
   mirror_magic:
     container_name: mirror_magic
