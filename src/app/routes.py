@@ -59,7 +59,6 @@ def change_display():
 @app.route('/send_clock_change/', methods=['POST'])     
 def change_clock():
     new_settings = request.json
-    
     try:
         settings = worker.change_clock(new_settings)
         return jsonify(settings)
@@ -70,7 +69,6 @@ def change_clock():
 @app.route('/send_tz_change/', methods=['POST'])     
 def change_tz():
     new_settings = request.json
-    
     try:
         settings = worker.change_tz(new_settings)
         return jsonify(settings)
@@ -113,3 +111,27 @@ def add_cal():
         return jsonify(settings)
     except:
         return 'failed'
+
+
+### WEATHER  ###
+
+@app.route('/send_wl_change/', methods=['POST'])
+def change_wl():
+    new_settings = request.json
+    try:
+        settings = worker.change_wl(new_settings)
+        return jsonify(settings)
+    except:
+        return 'failed'
+
+
+### NEWS  ###
+
+@app.route('/send_news_change/', methods=['POST'])
+def change_news():
+    new_settings = request.json
+    try:
+        settings = worker.change_news(new_settings)
+        return jsonify(settings)
+    except:
+        return 'failed'             

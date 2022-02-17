@@ -6,6 +6,11 @@ var timezones = {
   "Australia/Sydney": {"lat": -33.8651, "lon": 	151.2099},
 }
 
+var weatherlocs = {
+  "Konstanz": {"locationID": "2885679"},
+  "Stuttgart": {"locationID": "2825297"}
+}
+
 
   /**
   "Europe/Andorra",

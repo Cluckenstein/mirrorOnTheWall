@@ -11,12 +11,12 @@
         "position": "top_left",
         "config": {
             "displaySeconds": true,
-            "lat": 48.7823,
-            "lon": 9.177,
+            "lat": -33.8651,
+            "lon": 151.2099,
             "show": true,
             "showSunTimes": true,
             "showWeek": true,
-            "timezone": "Europe/Stuttgart"
+            "timezone": "Australia/Sydney"
         }
     },
     "clock_2": {
@@ -54,8 +54,8 @@
         "position": "top_right",
         "config": {
             "apiKey": "28f8833d6494314b297aba01d98a6f72",
-            "location": "Konstanz",
-            "locationID": "2885679",
+            "location": "Stuttgart",
+            "locationID": "2825297",
             "show": true,
             "type": "forecast",
             "weatherProvider": "openweathermap"
@@ -66,8 +66,8 @@
         "position": "top_right",
         "config": {
             "apiKey": "28f8833d6494314b297aba01d98a6f72",
-            "location": "Stuttgart",
-            "locationID": "2825297",
+            "location": "Konstanz",
+            "locationID": "2885679",
             "show": false,
             "type": "forecast",
             "weatherProvider": "openweathermap"

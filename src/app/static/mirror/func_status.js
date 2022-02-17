@@ -88,9 +88,9 @@ function show_menu(this_menu){
   } else if (this_menu=="calendar"){
     show_calendar_menu()
   } else if (this_menu=="weather"){
-    null
+    show_weather_menu()
   } else if (this_menu=="news"){
-    null
+    show_news_menu()
   }
 }
 
@@ -444,6 +444,7 @@ function show_calendar_menu(){
     let label_span = document.createElement("span")
     label_span.className = "input-group-text"
     label_span.innerHTML = "URL"
+    label_span.style = "width:55px"
 
     label_div.appendChild(label_span)
     input_div.appendChild(label_div)
@@ -484,7 +485,8 @@ function show_calendar_menu(){
 
   let label_span = document.createElement("span")
   label_span.className = "input-group-text"
-  label_span.innerHTML = "URL"
+  label_span.innerHTML = "New"
+  label_span.style = "width:55px"
 
   label_div.appendChild(label_span)
   input_div.appendChild(label_div)
@@ -578,3 +580,259 @@ function add_cal() {
   });
 }
 
+
+/* WEATHER */
+
+function show_weather_menu(){
+
+  let mod_menu = document.getElementById("show_weather_menu")
+
+  for (let cur_weather in settings["weather"]){
+    if (cur_weather!="position"){
+
+      let input_div = document.createElement("div")
+      input_div.className = "input-group mb-3"
+
+      let label_div = document.createElement("div")
+      label_div.className = "input-group-prepend"
+      label_div.style = "margin-right:10px"
+
+      let label_span = document.createElement("span")
+      label_span.className = "input-group-text"
+      label_span.innerHTML = "Location"
+      label_span.style = "width:85px"
+
+      label_div.appendChild(label_span)
+      input_div.appendChild(label_div)
+
+      let drop_div = document.createElement("div")
+      drop_div.className = "dropdown"
+
+      let drop_button = document.createElement("a")
+      drop_button.className = "btn btn-secondary dropdown-toggle"
+      drop_button.setAttribute("role","button")
+      drop_button.id = cur_weather+"_dropbutton"
+      drop_button.href = "#"
+      drop_button.setAttribute("data-toggle", "dropdown")
+      drop_button.setAttribute("aria-haspopup", "true")
+      drop_button.setAttribute("aria-expanded", "false")
+      drop_button.innerHTML = settings["weather"][cur_weather]["location"]
+
+      drop_div.appendChild(drop_button)
+
+      let drop_menu_div = document.createElement("div")
+      drop_menu_div.className = "dropdown-menu"
+      drop_menu_div.setAttribute("aria-labelledby", cur_weather+"_dropbutton")
+
+      for (let wl in weatherlocs){
+        let drop_point = document.createElement("a")
+        drop_point.className = "dropdown-item"
+        drop_point.innerHTML = wl
+        drop_point.href = "#"
+        drop_point.id = cur_weather+"_"+wl+"_dropbutton"        
+        drop_point.addEventListener("click", function() {
+          change_wl_button(this.innerHTML, this.id)
+        })   
+        drop_point.addEventListener("click", function() {        
+          send_wl_change(this.id)
+        });
+        drop_menu_div.appendChild(drop_point)
+      }
+
+      drop_div.appendChild(drop_menu_div)
+      input_div.appendChild(drop_div)
+      mod_menu.appendChild(input_div)
+    }
+  }
+
+  let input_div = document.createElement("div")
+  input_div.className = "input-group mb-3"
+
+  let label_div = document.createElement("div")
+  label_div.className = "input-group-prepend"
+  label_div.style = "margin-right:10px"
+
+  let label_span = document.createElement("span")
+  label_span.className = "input-group-text"
+  label_span.innerHTML = "New"
+  label_span.style = "width:85px"
+
+  label_div.appendChild(label_span)
+  input_div.appendChild(label_div)
+
+  var loc_input_field = document.createElement("input")
+  loc_input_field.type = "text"
+  loc_input_field.className = "form-control"
+  loc_input_field.placeholder = "Location"
+  loc_input_field.id = "new_loc"
+  loc_input_field.style = "margin-right:10px"
+
+  var locid_input_field = document.createElement("input")
+  locid_input_field.type = "text"
+  locid_input_field.className = "form-control"
+  locid_input_field.placeholder = "Location ID"
+  locid_input_field.id = "new_locid"
+  locid_input_field.style = "margin-right:10px"  
+
+  let but_div = document.createElement("div")
+  but_div.className = "input-group-append"
+
+  let but_add = document.createElement("button")
+  but_add.type = "button"
+  but_add.onclick = function(){add_wl()}
+  but_add.className = "btn btn-secondary"
+  but_add.innerHTML = "Add"
+  but_add.style = "width:70px" 
+
+  but_div.appendChild(but_add)
+  
+  input_div.appendChild(loc_input_field)
+  input_div.appendChild(locid_input_field)
+  input_div.appendChild(but_div)
+  mod_menu.appendChild(input_div)
+
+}
+
+
+function change_wl_button(string, button){
+  let buttonsplit = button.split("_")
+  let cur_but = document.getElementById(buttonsplit[0]+"_"+buttonsplit[1]+"_"+buttonsplit[3])
+  cur_but.innerHTML = string
+}
+
+
+function send_wl_change(id){
+  let idsplit = id.split("_")
+  let weather = idsplit[0]+"_"+idsplit[1]
+  let wl = idsplit[2]
+  
+  settings["weather"][weather]["location"] = wl
+  settings["weather"][weather]["locationID"] = weatherlocs[wl]["locationID"]
+
+  $.ajax({
+    type : "POST",
+    cache : false,
+    url: "/send_wl_change/",  
+    contentType:"application/json",
+    data : JSON.stringify(settings),
+    dataType: "json",
+    success : function(response){ 
+      settings = response  
+      setTimeout(function(){
+        empty_menus() 
+        show_weather_menu()
+        }, 1500)
+      console.log("weatherloc sent")
+    },
+    error: function(){
+      console.log("shitty response")
+    }
+  });
+}
+
+
+function add_wl() {
+
+  loc = "new_loc"
+  locid = "new_locid"
+  let new_loc = document.getElementById(loc).value
+  let new_locid = document.getElementById(locid).value
+
+  weatherlocs[new_loc] = {"locationID": new_locid}
+
+  setTimeout(function(){
+    empty_menus() 
+    show_weather_menu()
+    }, 1500)
+   console.log("location added")
+
+}
+
+
+/* NEWSFEED */
+
+function show_news_menu(){
+
+  let mod_menu = document.getElementById("show_news_menu")
+
+  for (let cur_news in settings["news"]){
+    if (cur_news!="position"){
+
+      let input_div = document.createElement("div")
+      input_div.className = "input-group mb-3"
+
+      let label_div = document.createElement("div")
+      label_div.className = "input-group-prepend"
+      label_div.style = "margin-right:10px"
+
+      let label_span = document.createElement("span")
+      label_span.className = "input-group-text"
+      label_span.innerHTML = "News"
+      label_span.style = "width:60px"
+
+      label_div.appendChild(label_span)
+      input_div.appendChild(label_div)
+
+      var title_input_field = document.createElement("input")
+      title_input_field.type = "text"
+      title_input_field.className = "form-control"
+      title_input_field .placeholder = settings["news"][cur_news]["feeds"][0]["title"]
+      title_input_field.id = cur_news+"_title"
+      title_input_field.style = "margin-right:10px" 
+
+      var url_input_field = document.createElement("input")
+      url_input_field.type = "text"
+      url_input_field.className = "form-control"
+      url_input_field.placeholder = settings["news"][cur_news]["feeds"][0]["url"]
+      url_input_field.id = cur_news+"_url"
+      url_input_field.style = "margin-right:10px"  
+
+      let but_div = document.createElement("div")
+      but_div.className = "input-group-append"
+
+      let but_add = document.createElement("button")
+      but_add.type = "button"
+      but_add.onclick = function(){send_news_change(url_input_field.id)}
+      but_add.className = "btn btn-secondary"
+      but_add.innerHTML = "Change"
+      but_add.style = "width:80px" 
+
+      but_div.appendChild(but_add)
+
+      input_div.appendChild(title_input_field)
+      input_div.appendChild(url_input_field)
+      input_div.appendChild(but_div)
+      mod_menu.appendChild(input_div)
+    }    
+  }
+}
+
+function send_news_change(id){
+  let idsplit = id.split("_")
+  let new_id = idsplit[0]+"_"+idsplit[1]
+  let new_url = document.getElementById(new_id+"_url").value
+  let new_title = document.getElementById(new_id+"_title").value
+  
+  settings["news"][new_id]["feeds"][0]["url"] = new_url
+  settings["news"][new_id]["feeds"][0]["title"] = new_title
+
+  $.ajax({
+    type : "POST",
+    cache : false,
+    url: "/send_news_change/",  
+    contentType:"application/json",
+    data : JSON.stringify(settings),
+    dataType: "json",
+    success : function(response){ 
+      settings = response  
+      setTimeout(function(){
+        empty_menus() 
+        show_news_menu()
+        }, 1500)
+      console.log("news changed")
+    },
+    error: function(){
+      console.log("shitty response")
+    }
+  });
+}

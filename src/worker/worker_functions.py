@@ -273,8 +273,53 @@ def add_cal(url, config_path = "magic_mirror/settings/settings_display.json", se
 
     _= mod_config(server_config, server_config_path, server_js) 
         
-    return our_config  
+    return our_config
 
+
+### WEATHER ###
+
+def change_wl(changes, config_path = "magic_mirror/settings/settings_display.json", server_config_path = "magic_mirror/config/server_config.json", server_js = "magic_mirror/config/config.js"):
+
+    with open(config_path, "w") as f:
+        json.dump(changes, f)
+
+    with open(config_path, "r") as f:
+        our_config = json.load(f)
+        
+    with open(server_config_path, "r") as f:
+        server_config = json.load(f)    
+        
+    server_config["weather_1"]["config"]["location"] = our_config["weather"]["weather_1"]["location"]
+    server_config["weather_1"]["config"]["locationID"] = our_config["weather"]["weather_1"]["locationID"]
+    server_config["weather_2"]["config"]["location"] = our_config["weather"]["weather_2"]["location"]
+    server_config["weather_2"]["config"]["locationID"] = our_config["weather"]["weather_2"]["locationID"] 
+
+    _= mod_config(server_config, server_config_path, server_js) 
+        
+    return changes
+
+
+### NEWS ###
+
+def change_news(changes, config_path = "magic_mirror/settings/settings_display.json", server_config_path = "magic_mirror/config/server_config.json", server_js = "magic_mirror/config/config.js"):
+
+    with open(config_path, "w") as f:
+        json.dump(changes, f)
+
+    with open(config_path, "r") as f:
+        our_config = json.load(f)
+        
+    with open(server_config_path, "r") as f:
+        server_config = json.load(f)    
+        
+    server_config["news_1"]["config"]["feeds"][0]["url"] = our_config["news"]["news_1"]["feeds"][0]["url"]
+    server_config["news_1"]["config"]["feeds"][0]["title"] = our_config["news"]["news_1"]["feeds"][0]["title"]
+    server_config["news_2"]["config"]["feeds"][0]["url"] = our_config["news"]["news_2"]["feeds"][0]["url"]
+    server_config["news_2"]["config"]["feeds"][0]["title"] = our_config["news"]["news_2"]["feeds"][0]["title"]
+
+    _= mod_config(server_config, server_config_path, server_js) 
+        
+    return changes
 
 
 if __name__ == "__main__":
