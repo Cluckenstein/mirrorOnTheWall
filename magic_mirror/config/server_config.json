@@ -11,12 +11,12 @@
         "position": "top_left",
         "config": {
             "displaySeconds": true,
-            "lat": -33.8651,
-            "lon": 151.2099,
+            "lat": 47.6603,
+            "lon": 9.1758,
             "show": true,
             "showSunTimes": true,
             "showWeek": true,
-            "timezone": "Australia/Sydney"
+            "timezone": "Europe/Konstanz"
         }
     },
     "clock_2": {
@@ -40,11 +40,11 @@
             "calendars": [
                 {
                     "symbol": "calendar-check",
-                    "url": "webcal://i.cal.to/ical/64/baden-wuerttemberg/feiertage/1fed6c7e.ea355af1-04387029.ics"
+                    "url": "webcal://i.cal.to/ical/64/baden-wuerttemberg/feiertage/1fed6c7e.ea355af1-04387029.ic"
                 },
                 {
                     "symbol": "calendar-check",
-                    "url": "\"https://www.reihn.de/update_calender/1VItIaXahzWFOgy5PIowr22G/\""
+                    "url": "https://www.reihn.de/update_calender/1VItIaXahzWFOgy5PIowr22G/"
                 }
             ]
         }

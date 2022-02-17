@@ -462,7 +462,7 @@ function show_calendar_menu(){
 
     let but_del = document.createElement("button")
     but_del.type = "button"
-    but_del.onclick = function(){delete_cal()}
+    but_del.onclick = function(){delete_cal(url_field.id)}
     but_del.className = "btn btn-secondary"
     but_del.innerHTML = "Delete"
     but_del.style = "width:70px" 
@@ -516,21 +516,9 @@ function show_calendar_menu(){
 }
 
 
-function delete_cal() {
+function delete_cal(id) {
 
-  counter = 0
-  id = "cal_"+counter.toString()
-  met = false
-  let url = ""
-  while (met==false){
-    url = document.getElementById(id).placeholder
-    if (url!=""){
-      met = true
-    }
-    else{
-      counter = counter + 1
-    }
-  }
+  url = document.getElementById(id).placeholder
 
   $.ajax({
     type : "POST",
