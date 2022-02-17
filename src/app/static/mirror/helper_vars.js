@@ -1,4 +1,13 @@
-var time_zones = [
+var timezones = {
+  "Europe/Konstanz": {"lat": 47.6603, "lon": 9.1758},
+  "Europe/Stuttgart": {"lat": 48.7823, "lon": 9.1770},
+  "America/New_York": {"lat": 40.7306, "lon": -73.9352},
+  "America/San_Francisco": {"lat": 37.7739, "lon": 	-122.4312},
+  "Australia/Sydney": {"lat": -33.8651, "lon": 	151.2099},
+}
+
+
+  /**
   "Europe/Andorra",
   "Asia/Dubai",
   "Asia/Kabul",
@@ -6,7 +15,7 @@ var time_zones = [
   "Asia/Yerevan",
   "Antarctica/Casey",
   "Antarctica/Davis",
-  "Antarctica/DumontDUrville", // https://bugs.chromium.org/p/chromium/issues/detail?id=928068
+  "Antarctica/DumontDUrville",
   "Antarctica/Mawson",
   "Antarctica/Palmer",
   "Antarctica/Rothera",
@@ -177,7 +186,7 @@ var time_zones = [
   "Asia/Seoul",
   "Asia/Almaty",
   "Asia/Qyzylorda",
-  "Asia/Qostanay", // https://bugs.chromium.org/p/chromium/issues/detail?id=928068
+  "Asia/Qostanay",
   "Asia/Aqtobe",
   "Asia/Aqtau",
   "Asia/Atyrau",
@@ -347,4 +356,4 @@ var time_zones = [
   "Pacific/Wallis",
   "Pacific/Apia",
   "Africa/Johannesburg"
-];
+ */

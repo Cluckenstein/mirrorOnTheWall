@@ -11,12 +11,12 @@
         "position": "top_left",
         "config": {
             "displaySeconds": true,
-            "lat": 47.6703,
-            "lon": 9.251,
+            "lat": 48.7823,
+            "lon": 9.177,
             "show": true,
             "showSunTimes": true,
             "showWeek": true,
-            "timezone": "Europe/Berlin"
+            "timezone": "Europe/Stuttgart"
         }
     },
     "clock_2": {
@@ -24,12 +24,12 @@
         "position": "top_left",
         "config": {
             "displaySeconds": true,
-            "lat": 47.6703,
-            "lon": 9.251,
+            "lat": -33.8651,
+            "lon": 151.2099,
             "show": false,
-            "showSunTimes": false,
+            "showSunTimes": true,
             "showWeek": true,
-            "timezone": "America/New_York"
+            "timezone": "Australia/Sydney"
         }
     },
     "calendar": {
@@ -38,10 +38,6 @@
         "position": "top_left",
         "config": {
             "calendars": [
-                {
-                    "symbol": "calendar-check",
-                    "url": "https://www.reihn.de/update_calender/1VItIaXahzWFOgy5PIowr22G/"
-                },
                 {
                     "symbol": "calendar-check",
                     "url": "webcal://i.cal.to/ical/64/baden-wuerttemberg/feiertage/1fed6c7e.ea355af1-04387029.ics"
@@ -56,7 +52,7 @@
             "apiKey": "28f8833d6494314b297aba01d98a6f72",
             "location": "Konstanz",
             "locationID": "2885679",
-            "show": false,
+            "show": true,
             "type": "forecast",
             "weatherProvider": "openweathermap"
         }
@@ -68,7 +64,7 @@
             "apiKey": "28f8833d6494314b297aba01d98a6f72",
             "location": "Stuttgart",
             "locationID": "2825297",
-            "show": true,
+            "show": false,
             "type": "forecast",
             "weatherProvider": "openweathermap"
         }
@@ -79,8 +75,8 @@
         "config": {
             "feeds": [
                 {
-                    "title": "Reuters Financial",
-                    "url": "https://ir.thomsonreuters.com/rss/news-releases.xml"
+                    "title": "Reuters",
+                    "url": "https://www.reutersagency.com/feed/?taxonomy=best-topics&post_type=best"
                 }
             ],
             "showSourceTitle": true,
@@ -96,7 +92,7 @@
             "feeds": [
                 {
                     "title": "Tagesschau Newsticker",
-                    "url": "https://www.tagesschau.de/newsticker.rdf"
+                    "url": "https://www.tagesschau.de/xml/rss2/"
                 }
             ],
             "showSourceTitle": true,
