@@ -6,6 +6,7 @@ import os
 
 ### GENERAL ###
 
+# glaube die kann man löschen
 def get_config():
     ip_network = parse_env(".env")["IP_OWN"]
     r = requests.get("http://%s:8082/api/config"%(ip_network))
@@ -39,7 +40,7 @@ def mod_config(server_config, server_config_path = "magic_mirror/config/server_c
         
     return True
 
-
+# glaube die kann man löschen
 def get_modules(env_path = ".env"):
     ip_network = parse_env(env_path)["IP_OWN"]
     r = requests.get("http://%s:8082/api/module"%(ip_network))
@@ -176,7 +177,7 @@ def change_clock(changes, config_path = "magic_mirror/settings/settings_display.
 
     _= mod_config(server_config, server_config_path, server_js) 
         
-    return True
+    return changes
 
 
 def change_tz(changes, config_path = "magic_mirror/settings/settings_display.json", server_config_path = "magic_mirror/config/server_config.json", server_js = "magic_mirror/config/config.js"):
@@ -199,7 +200,7 @@ def change_tz(changes, config_path = "magic_mirror/settings/settings_display.jso
 
     _= mod_config(server_config, server_config_path, server_js) 
         
-    return True
+    return changes
 
 
 ### MESSAGE ###
@@ -246,7 +247,7 @@ def delete_cal(url, config_path = "magic_mirror/settings/settings_display.json",
 
     _= mod_config(server_config, server_config_path, server_js) 
         
-    return True
+    return our_config
 
 
 def add_cal(url, config_path = "magic_mirror/settings/settings_display.json", server_config_path = "magic_mirror/config/server_config.json", server_js = "magic_mirror/config/config.js"):
@@ -272,7 +273,7 @@ def add_cal(url, config_path = "magic_mirror/settings/settings_display.json", se
 
     _= mod_config(server_config, server_config_path, server_js) 
         
-    return True   
+    return our_config  
 
 
 

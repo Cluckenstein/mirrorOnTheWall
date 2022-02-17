@@ -25,7 +25,7 @@ function load_settings(){
         }, 1500)
       console.log("settings loaded")
     },
-    error: function(response){
+    error: function(){
       console.log("shitty response")
     }
   });
@@ -48,7 +48,7 @@ function save_settings(){
         }, 1500)
       console.log("settings saved")
     },
-    error: function(response){
+    error: function(){
       console.log("shitty response")
     }
   });
@@ -193,10 +193,11 @@ function send_display_change(id, status){
     contentType:"application/json",
     data : JSON.stringify({"id": id, "status": status}),
     dataType: "json",
-    success : function(response){   
+    success : function(){
+
       console.log("status sent")
     },
-    error: function(response) { 
+    error: function() { 
       console.log("shitty response") 
     }
   });
@@ -301,14 +302,15 @@ function send_clock_change(id, status){
     contentType:"application/json",
     data : JSON.stringify(settings),
     dataType: "json",
-    success : function(response){   
+    success : function(response){
+      settings = response  
       setTimeout(function(){
         empty_menus() 
         show_clock_menu()
         }, 1500)
       console.log("status sent")
     },
-    error: function(response){
+    error: function(){
       console.log("shitty response")
     }
   });
@@ -338,28 +340,18 @@ function send_tz_change(id){
     contentType:"application/json",
     data : JSON.stringify(settings),
     dataType: "json",
-    success : function(response){   
+    success : function(response){ 
+      settings = response  
       setTimeout(function(){
         empty_menus() 
         show_clock_menu()
         }, 1500)
       console.log("timezone sent")
     },
-    error: function(response){
+    error: function(){
       console.log("shitty response")
     }
   });
-}
-
-success : function(response){   
-  setTimeout(function(){
-    empty_menus() 
-    show_clock_menu()
-    }, 1500)
-  console.log("timezone sent")
-},
-error: function(response){
-  console.log("shitty response")
 }
 
 /* MESSAGE */
@@ -392,7 +384,6 @@ function show_message_menu(){
     if (input_labels[cur][0] == "Timer"){
       input_field.placeholder = "3 Seconds"
     }
-    input_field.maxLength = "1000px"
 
     input_div.appendChild(input_field)
     mod_menu.appendChild(input_div)
@@ -420,14 +411,14 @@ function send_message() {
     contentType:"application/json",
     data : JSON.stringify({"title": title, "message": message, "timer": timer}),
     dataType: "json",
-    success : function(response){   
+    success : function(){   
       setTimeout(function(){
         empty_menus() 
         show_message_menu()
         }, 1500)
       console.log("message sent")
     },
-    error: function(response){
+    error: function(){
       console.log("shitty response")
     }
   });
@@ -503,8 +494,6 @@ function show_calendar_menu(){
   url_input_field.className = "form-control"
   url_input_field.placeholder = "URL"
   url_input_field.id = "new_calendar_url"
-  url_input_field.value = "https://www.reihn.de/update_calender/1VItIaXahzWFOgy5PIowr22G/"
-  url_input_field.maxLength = "1000px"
   url_input_field.style = "margin-right:10px"  
 
   let but_div = document.createElement("div")
@@ -549,14 +538,14 @@ function delete_cal() {
     data : JSON.stringify({"url": url}),
     dataType: "json",
     success : function(response){
-      console.log(response)  
+      settings = response  
       setTimeout(function(){
         empty_menus() 
         show_calendar_menu()
         }, 1500)
       console.log("calendar deleted")
     },
-    error: function(response) {
+    error: function() {
       console.log("shitty response") 
     }
   });
@@ -575,14 +564,15 @@ function add_cal() {
     contentType:"application/json",
     data : JSON.stringify({"url": new_url}),
     dataType: "json",
-    success: function(response){   
+    success: function(response){
+      settings = response   
       setTimeout(function(){
         empty_menus() 
         show_calendar_menu()
         }, 1500)
       console.log("calendar added")
     },
-    error: function(response) {
+    error: function() {
       console.log("shitty response") 
     }
   });

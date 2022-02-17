@@ -11,6 +11,7 @@ def table_status():
     return render_template('mirror/settings.html')
   
 
+# glaube die kann man löschen
 @app.route('/get_modules/', methods=['POST'])
 def get_modules():
     try:
@@ -61,7 +62,7 @@ def change_clock():
     
     try:
         settings = worker.change_clock(new_settings)
-        return jsonify({'status':'success'})
+        return jsonify(settings)
     except:
         return 'failed'
 
@@ -72,7 +73,7 @@ def change_tz():
     
     try:
         settings = worker.change_tz(new_settings)
-        return jsonify({'status':'success'})
+        return jsonify(settings)
     except:
         return 'failed'       
 
@@ -98,8 +99,8 @@ def send_message():
 def delete_cal():
     url = request.json['url']
     try:
-        _ = worker.delete_cal(url)
-        return jsonify({'status':'success'})
+        settings = worker.delete_cal(url)
+        return jsonify(settings)
     except:
         return 'failed'
 
@@ -108,7 +109,7 @@ def delete_cal():
 def add_cal():
     url = request.json['url']
     try:
-        _ = worker.add_cal(url)
-        return jsonify({'status':'success'})
+        settings = worker.add_cal(url)
+        return jsonify(settings)
     except:
         return 'failed'

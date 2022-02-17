@@ -41,6 +41,10 @@
                 {
                     "symbol": "calendar-check",
                     "url": "webcal://i.cal.to/ical/64/baden-wuerttemberg/feiertage/1fed6c7e.ea355af1-04387029.ics"
+                },
+                {
+                    "symbol": "calendar-check",
+                    "url": "\"https://www.reihn.de/update_calender/1VItIaXahzWFOgy5PIowr22G/\""
                 }
             ]
         }
