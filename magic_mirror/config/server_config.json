@@ -16,7 +16,7 @@
             "show": true,
             "showSunTimes": true,
             "showWeek": true,
-            "timezone": "Europe/Konstanz"
+            "timezone": "Etc/GMT+-1"
         }
     },
     "clock_2": {
@@ -29,7 +29,7 @@
             "show": false,
             "showSunTimes": true,
             "showWeek": true,
-            "timezone": "Australia/Sydney"
+            "timezone": "Etc/GMT-11"
         }
     },
     "calendar": {

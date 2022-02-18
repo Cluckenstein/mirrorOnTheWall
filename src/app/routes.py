@@ -11,14 +11,52 @@ def table_status():
     return render_template('mirror/settings.html')
   
 
-# glaube die kann man löschen
+# LÖSCHEN?
 @app.route('/get_modules/', methods=['POST'])
 def get_modules():
     try:
         modules = worker.get_modules()
         return jsonify(modules)
     except:
-        return 'failed'  
+        return 'failed'
+
+
+@app.route('/init_helper_vars/', methods=['POST'])
+def get_helper_vars():
+    try:
+        helper_vars = worker.get_helper_vars()
+        return jsonify(helper_vars)
+    except:
+        return 'failed'
+
+
+@app.route('/save_helper_vars/', methods=['POST'])
+def save_helper_vars():
+    new_helper_vars = request.json
+    try:
+        helper_vars = worker.save_helper_vars(new_helper_vars)
+        return jsonify(helper_vars)
+    except:
+        return 'failed'
+
+
+@app.route('/refresh_browser/', methods=['POST'])
+def refresh_browser():
+    try:
+        _ = worker.refresh_browser()
+        return jsonify({'status':'success'})
+    except:
+        return 'failed'
+
+
+@app.route('/send_pos_change/', methods=['POST'])     
+def change_pos():
+    new_settings = request.json
+    try:
+        settings = worker.change_pos(new_settings)
+        return jsonify(settings)
+    except:
+        return 'failed'
 
 
 ### SETTINGS ###
