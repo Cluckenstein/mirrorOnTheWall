@@ -49,13 +49,6 @@
     "desc": "Rotate modules, to save space on screen."
   },
   {
-    "longname": "MMM-Carousel w/ Slide Navigation",
-    "id": "schramkef/MMM-Carousel",
-    "url": "https://github.com/schramkef/MMM-Carousel",
-    "author": "schramkef",
-    "desc": "Fork of MMM-Carousel with page indicators and navigation buttons."
-  },
-  {
     "longname": "MMM-connection-status",
     "id": "sheyabernstein/MMM-connection-status",
     "url": "https://github.com/sheyabernstein/MMM-connection-status",
@@ -201,6 +194,13 @@
     "url": "https://github.com/edward-shen/MMM-pages",
     "author": "edward-shen",
     "desc": "An maintained module that allows you to rotate out pages of modules!"
+  },
+  {
+    "longname": "MMM-Pages-Screencast",
+    "id": "jboucly/MMM-Pages-Screencast",
+    "url": "https://github.com/jboucly/MMM-Pages-Screencast",
+    "author": "jboucly",
+    "desc": "Interface module between [MMM-pages](https://github.com/edward-shen/MMM-pages) and [MMM-Screencast](https://github.com/kevinatown/MMM-Screencast). Module to automatically change page when a video is cast on the magic mirror"
   },
   {
     "longname": "MMM-page-indicator",
@@ -621,6 +621,13 @@
     "url": "https://github.com/slametps/MMM-PrayerTime",
     "author": "Slamet PS",
     "desc": "Displays moslem praying time with Adhan recital."
+  },
+  {
+    "longname": "MMM-Pelletpreise",
+    "id": "eckonator/MMM-Pelletpreise",
+    "url": "https://github.com/eckonator/MMM-Pelletpreise",
+    "author": "Eckonator",
+    "desc": "The module displays pellet prices for the current year based on Chart.js and the API of heizpellets24.de."
   },
   {
     "longname": "MMM-RandomQuranAyah",
@@ -2538,7 +2545,7 @@
     "id": "hangorazvan/onecall",
     "url": "https://github.com/hangorazvan/onecall",
     "author": "hangorazvan",
-    "desc": "Modified deprecated current & forecast weather module based on Openweathermap with Onecall endpoint and Air Quality Index with compliments. This module call only once your appid no matter how many instances are loaded, for current, hourly, daily or AQI, with this reason it was designed for."
+    "desc": "Modified current & forecast weather module based on Openweathermap with Onecall endpoint and Air Quality Index with compliments. This module call only once your appid no matter how many instances are loaded, for current, hourly, daily or AQI, with this reason it was designed for."
   },
   {
     "longname": "pollution",
@@ -2548,9 +2555,9 @@
     "desc": "Openweathermap Air Pollution with compliments"
   },
   {
-    "longname": "weather",
-    "id": "hangorazvan/weather",
-    "url": "https://github.com/hangorazvan/weather",
+    "longname": "weather_extra",
+    "id": "hangorazvan/weather_extra",
+    "url": "https://github.com/hangorazvan/weather_extra",
     "author": "hangorazvan",
     "desc": "Modified default weather module with OpenWeatherMap OneCall endpoint, enhancements and extra data"
   },
@@ -2567,6 +2574,13 @@
     "url": "https://github.com/grenagit/MMM-BiathlonResults",
     "author": "Grena",
     "desc": "A module displaying the current biathlon results (World Cup and IBU Cup)."
+  },
+  {
+    "longname": "MMM-CHAMPIONSQUEUE-LEADERBOARD",
+    "id": "xadamxk/MMM-CHAMPIONSQUEUE-LEADERBOARD",
+    "url": "https://github.com/xadamxk/MMM-CHAMPIONSQUEUE-LEADERBOARD",
+    "author": "xadamxk",
+    "desc": "Displays LOL Champions Queue standings."
   },
   {
     "longname": "MMM-CollegeFootballTop25",
@@ -2716,144 +2730,11 @@
     "desc": "A module that displays cicket scores for ongoing live cricket matches."
   },
   {
-    "longname": "MMM-PhilipsHue",
-    "id": "mumblebaj/MMM-PhilipsHue",
-    "url": "https://github.com/mumblebaj/MMM-PhilipsHue",
-    "author": "mumblebaj",
-    "desc": "Module to grab the status of your lights from your Hue Bridge with some updated features to display status of lights or groups."
-  },
-  {
-    "longname": "MMM-HRS-PickupPlan",
-    "id": "maan75/MMM-HRS-PickupPlan",
-    "url": "https://github.com/maan75/MMM-HRS-PickupPlan",
-    "author": "Martin Andreassen",
-    "desc": "Module to display upcoming pickup dates for garbage in the Norwegian municipalities of Harstad, Narvik, Evenes, Gratangen, Ibestad, Kvæfjord, Lavangen and Tjeldsund."
-  },
-  {
-    "longname": "MMM-Pinfo",
-    "id": "SalekurPolas/MMM-Pinfo",
-    "url": "https://github.com/SalekurPolas/MMM-Pinfo",
-    "author": "Salekur Rahaman",
-    "desc": "Informational module to display mirror information like Raspberry Pi model, unique serial number, network information, IPv4, IPv6, MAC address, OS information, CPU information, and more."
-  },
-  {
-    "longname": "MMM-Block",
-    "id": "BKeyport/MMM-Block",
-    "url": "https://github.com/BKeyport/MMM-Block",
-    "author": "BKeyport",
-    "desc": "Quick Module to easily move modules up or down for blank space"
-  },
-  {
-    "longname": "MMM-SweepClock",
-    "id": "mumblebaj/MMM-SweepClock",
-    "url": "https://github.com/mumblebaj/MMM-SweepClock",
-    "author": "mumblebaj",
-    "desc": "A Module to display a clasic Railway Clock"
-  },
-  {
-    "longname": "next-train-transilien",
-    "id": "next-train-transilien/",
-    "url": "https://github.com/trizome/next-train-transilien/",
-    "author": "trizome",
-    "desc": "Next trains / RER transilien (SNCF) Ile-de-France from a station"
-  },
-  {
-    "longname": "MMM-Worldclock",
-    "id": "MMM-Worldclock/",
-    "url": "https://github.com/BKeyport/MMM-Worldclock/",
-    "author": "BKeyport & eouia",
-    "desc": "Fully supported version of worldclock"
-  },
-  {
-    "longname": "calendar_monthly",
-    "id": "calendar_monthly/",
-    "url": "https://github.com/KirAsh4/calendar_monthly/",
-    "author": "KirAsh4",
-    "desc": "Display a compact monthly calendar view."
-  },
-  {
-    "longname": "camera",
-    "id": "alexyak/camera",
-    "url": "https://github.com/alexyak/camera",
-    "author": "alexyak",
-    "desc": "Display a webcamera video feed."
-  },
-  {
-    "longname": "iFrame",
-    "id": "desertblade/iFrame",
-    "url": "https://github.com/desertblade/iFrame",
-    "author": "desertblade",
-    "desc": "A simple way to add an iFrame of any web content. Seem to be abandoned."
-  },
-  {
-    "longname": "KeyDisplayed",
-    "id": "l0b5ter/KeyDisplayed",
-    "url": "https://github.com/l0b5ter/KeyDisplayed",
-    "author": "MJØD",
-    "desc": "Use the keyboard to open and close a popupwindow in the MagicMirror². Like lets say using the \"q\" key will open a popupwindow on MagicMirror's webpage. Using the iFrame to display web content"
-  },
-  {
-    "longname": "motiondetector",
-    "id": "alexyak/motiondetector",
-    "url": "https://github.com/alexyak/motiondetector",
-    "author": "alexyak",
-    "desc": "Camera based motion detector."
-  },
-  {
-    "longname": "MMM-Thingiverse",
-    "id": "appdevelopmentandsuch/MMM-Thingiverse",
-    "url": "https://github.com/appdevelopmentandsuch/MMM-Thingiverse",
-    "author": "appdevelopmentandsuch",
-    "desc": "View the latest popular things on Thingiverse."
-  },
-  {
-    "longname": "octoprint-module",
-    "id": "octomirror-module/",
-    "url": "https://github.com/shbatm/octomirror-module/",
-    "author": "DongerZonnie & shbatm",
-    "desc": "View & Control an OctoPrint 3d Printer Server Instance."
-  },
-  {
-    "longname": "phone-notification-mirror",
-    "id": "ronny3050/phone-notification-mirror",
-    "url": "https://github.com/ronny3050/phone-notification-mirror",
-    "author": "ronny3050",
-    "desc": "Displays and alerts mirror users on new phone notifications."
-  },
-  {
-    "longname": "Shelly-HT",
-    "id": "Medve01/Shelly-HT",
-    "url": "https://github.com/Medve01/Shelly-HT",
-    "author": "Medve",
-    "desc": "Module for displaying data from 1 Shelly HT sensor."
-  },
-  {
-    "longname": "MMM-AnyList",
-    "id": "codetheweb/MMM-AnyList",
-    "url": "https://github.com/codetheweb/MMM-AnyList",
-    "author": "codetheweb",
-    "desc": "Module to display a list from the AnyList app."
-  },
-  {
-    "longname": "MMM-AirbarHelper",
-    "id": "ryanzor/MMM-AirbarHelper",
-    "url": "https://github.com/ryanzor/MMM-AirbarHelper",
-    "author": "Ryan Cooke",
-    "desc": "Module to add touch input to your mirror using a ~$50 usb plug and play sensor."
-  },
-  {
-    "longname": "MMM-Airtable",
-    "id": "yashatgit/MMM-Airtable",
-    "url": "https://github.com/yashatgit/MMM-Airtable",
-    "author": "Yash",
-    "desc": "Module to display tables from Airtable."
-  },
-  {
-    "longname": "MMM-API",
-    "id": "juzim/MMM-Api",
-    "url": "https://github.com/juzim/MMM-Api",
-    "author": "JuZim",
-    "desc": "A somewhat RESTful(ish) API."
+    "longname": "MMM-01ZM",
+    "id": "rubinho101/MMM-01ZM",
+    "url": "https://github.com/rubinho101/MMM-01ZM",
+    "author": "rubinho101",
+    "desc": "Display Xiaomi LYWSDCGQ 01ZM Temperature and Humidity sensor values directly AND Nova SDS011 PM Air Quality sensor data."
   },
   {
     "longname": "MMM-Advent",
@@ -2877,11 +2758,46 @@
     "desc": "Displays all your tracked parcels from AfterShip."
   },
   {
+    "longname": "MMM-AirbarHelper",
+    "id": "ryanzor/MMM-AirbarHelper",
+    "url": "https://github.com/ryanzor/MMM-AirbarHelper",
+    "author": "Ryan Cooke",
+    "desc": "Module to add touch input to your mirror using a ~$50 usb plug and play sensor."
+  },
+  {
+    "longname": "MMM-Airtable",
+    "id": "yashatgit/MMM-Airtable",
+    "url": "https://github.com/yashatgit/MMM-Airtable",
+    "author": "Yash",
+    "desc": "Module to display tables from Airtable."
+  },
+  {
     "longname": "MMM-AlarmClock",
     "id": "fewieden/MMM-AlarmClock",
     "url": "https://github.com/fewieden/MMM-AlarmClock",
     "author": "fewieden",
     "desc": "Alarm Clock Module (touch and non-touch)"
+  },
+  {
+    "longname": "MMM-AmbientBrightnessDetection",
+    "id": "eric-h-st/MMM-AmbientBrightnessDetection",
+    "url": "https://github.com/eric-h-st/MMM-AmbientBrightnessDetection",
+    "author": "eric-h-st",
+    "desc": "Ambient brightness detection and Auto-Brightness of the mirror modules accordingly"
+  },
+  {
+    "longname": "MMM-AnyList",
+    "id": "codetheweb/MMM-AnyList",
+    "url": "https://github.com/codetheweb/MMM-AnyList",
+    "author": "codetheweb",
+    "desc": "Module to display a list from the AnyList app."
+  },
+  {
+    "longname": "MMM-API",
+    "id": "juzim/MMM-Api",
+    "url": "https://github.com/juzim/MMM-Api",
+    "author": "JuZim",
+    "desc": "A somewhat RESTful(ish) API."
   },
   {
     "longname": "MMM-AquareaSmartCloud",
@@ -2910,6 +2826,13 @@
     "url": "https://github.com/vincep5/MMM-Beestat",
     "author": "vincep5",
     "desc": "Display Ecobee runtime data from beestat.io API"
+  },
+  {
+    "longname": "MMM-Block",
+    "id": "BKeyport/MMM-Block",
+    "url": "https://github.com/BKeyport/MMM-Block",
+    "author": "BKeyport",
+    "desc": "Quick Module to easily move modules up or down for blank space"
   },
   {
     "longname": "MMM-BluetoothDevices",
@@ -2975,39 +2898,39 @@
     "desc": "CalDav Parser to convert to iCal format."
   },
   {
-    "longname": "MMM-CalendarExt",
-    "id": "eouia/MMM-CalendarExt",
-    "url": "https://github.com/eouia/MMM-CalendarExt",
-    "author": "eouia",
-    "desc": "Extended calendar and event view.(read only repo)"
-  },
-  {
     "longname": "MMM-CalendarExt2",
-    "id": "eouia/MMM-CalendarExt2",
-    "url": "https://github.com/eouia/MMM-CalendarExt2",
-    "author": "eouia",
-    "desc": "Extended calendar and event view. Improved than `MMM-CalendarExt`"
+    "id": "MMM-CalendarExt2/MMM-CalendarExt2",
+    "url": "https://github.com/MMM-CalendarExt2/MMM-CalendarExt2",
+    "author": "klaernie",
+    "desc": "Extended calendar and event view."
   },
   {
     "longname": "MMM-CalendarExtTimeline",
-    "id": "eouia/MMM-CalendarExtTimeline",
-    "url": "https://github.com/eouia/MMM-CalendarExtTimeline",
-    "author": "eouia",
-    "desc": "Display current timeline schedules. This is a plugin module for `MMM-CalendarExt` and `MMM-CalendarExt2`."
+    "id": "MMM-CalendarExt2/MMM-CalendarExtTimeline",
+    "url": "https://github.com/MMM-CalendarExt2/MMM-CalendarExtTimeline",
+    "author": "klaernie",
+    "desc": "Display current timeline schedules. This is a plugin module for `MMM-CalendarExt2`."
   },
   {
     "longname": "MMM-CalendarExtMinimonth",
-    "id": "eouia/MMM-CalendarExtMinimonth",
-    "url": "https://github.com/eouia/MMM-CalendarExtMinimonth",
-    "author": "eouia",
-    "desc": "Display mini month calendar. This is a plugin module for `MMM-CalendarExt` and `MMM-CalendarExt2`."
+    "id": "MMM-CalendarExt2/MMM-CalendarExtMinimonth",
+    "url": "https://github.com/MMM-CalendarExt2/MMM-CalendarExtMinimonth",
+    "author": "klaernie",
+    "desc": "Display mini month calendar. This is a plugin module for `MMM-CalendarExt2`."
   },
   {
     "longname": "MMM-CalendarExtPlan",
-    "id": "eouia/MMM-CalendarExtPlan",
-    "url": "https://github.com/eouia/MMM-CalendarExtPlan",
-    "author": "eouia",
-    "desc": "Display daily plan by criteria. This is a plugin module for `MMM-CalendarExt` and `MMM-CalendarExt2`."
+    "id": "MMM-CalendarExt2/MMM-CalendarExtPlan",
+    "url": "https://github.com/MMM-CalendarExt2/MMM-CalendarExtPlan",
+    "author": "klaernie",
+    "desc": "Display daily plan by criteria. This is a plugin module for `MMM-CalendarExt2`."
+  },
+  {
+    "longname": "calendar_monthly",
+    "id": "calendar_monthly/",
+    "url": "https://github.com/KirAsh4/calendar_monthly/",
+    "author": "KirAsh4",
+    "desc": "Display a compact monthly calendar view."
   },
   {
     "longname": "MMM-CalendarWeek",
@@ -3022,6 +2945,13 @@
     "url": "https://github.com/paviro/MMM-Callmonitor-Current-Call",
     "author": "PaViRo",
     "desc": "Extension for [MMM-FRITZ-Box-Callmonitor](https://github.com/paviro/MMM-FRITZ-Box-Callmonitor) (Displays the currently active call)"
+  },
+  {
+    "longname": "camera",
+    "id": "alexyak/camera",
+    "url": "https://github.com/alexyak/camera",
+    "author": "alexyak",
+    "desc": "Display a webcamera video feed."
   },
   {
     "longname": "MMM-Chart",
@@ -3043,13 +2973,6 @@
     "url": "https://github.com/vincep5/MMM-ComEdPrice",
     "author": "vincep5",
     "desc": "Displays ComEd Hourly Pricing"
-  },
-  {
-    "longname": "Compliments_plus",
-    "id": "hangorazvan/compliments_plus",
-    "url": "https://github.com/hangorazvan/compliments_plus",
-    "author": "hangorazvan",
-    "desc": "More day and night compliments"
   },
   {
     "longname": "MMM-CountDown",
@@ -3185,6 +3108,13 @@
     "desc": "Display your Fitbit statistics."
   },
   {
+    "longname": "MMM-flicio",
+    "id": "nomis6432/MMM-flicio",
+    "url": "https://github.com/nomis6432/MMM-flicio",
+    "author": "nomis6432",
+    "desc": "send notifications to other modules with flic.io buttons."
+  },
+  {
     "longname": "MMM-FortniteStats",
     "id": "yourdawi/MMM-FortniteStats",
     "url": "https://github.com/yourdawi/MMM-FortniteStats",
@@ -3225,6 +3155,13 @@
     "url": "https://github.com/deg0nz/MMM-Fronius2",
     "author": "deg0nz",
     "desc": "Displays data from a Fronius Solar Inverter, supports auto-off inverters and can be used as a data source for [MMM-EnergyMonitor](https://github.com/deg0nz/MMM-EnergyMonitor)."
+  },
+  {
+    "longname": "MMM-FTP-image",
+    "id": "jboucly/MMM-FTP-image",
+    "url": "https://github.com/jboucly/MMM-FTP-image",
+    "author": "jboucly",
+    "desc": "Displays images from an FTP server with a display delay"
   },
   {
     "longname": "MMM-GamepadEvents",
@@ -3295,6 +3232,13 @@
     "url": "https://github.com/brentpabst/MMM-gpsd",
     "author": "brentpabst",
     "desc": "Display real-time GPS data from GPSD"
+  },
+  {
+    "longname": "MMM-GrafanaChart",
+    "id": "SvenSommer/MMM-GrafanaChart",
+    "url": "https://github.com/SvenSommer/MMM-GrafanaChart",
+    "author": "SvenSommer",
+    "desc": "Module to display a diagram generated by Grafana"
   },
   {
     "longname": "MMM-HTTPRequestDisplay",
@@ -3409,6 +3353,13 @@
     "desc": "Connects to HoverLabs hover gesture detector and can raise notifications on swipes and taps"
   },
   {
+    "longname": "MMM-HRS-PickupPlan",
+    "id": "maan75/MMM-HRS-PickupPlan",
+    "url": "https://github.com/maan75/MMM-HRS-PickupPlan",
+    "author": "Martin Andreassen",
+    "desc": "Module to display upcoming pickup dates for garbage in the Norwegian municipalities of Harstad, Narvik, Evenes, Gratangen, Ibestad, Kvæfjord, Lavangen and Tjeldsund."
+  },
+  {
     "longname": "MMM-Hue-Lights",
     "id": "michael5r/mmm-hue-lights",
     "url": "https://github.com/michael5r/mmm-hue-lights",
@@ -3442,6 +3393,13 @@
     "url": "https://github.com/bitte-ein-bit/MMM-iCloud-Client",
     "author": "Bitte-ein-Bit",
     "desc": "Load iCloud addressbook and provide birthday iCal feed for calendar module and addressbook for [MMM-FRITZ-Box-Callmonitor](https://github.com/paviro/MMM-FRITZ-Box-Callmonitor)."
+  },
+  {
+    "longname": "iFrame",
+    "id": "desertblade/iFrame",
+    "url": "https://github.com/desertblade/iFrame",
+    "author": "desertblade",
+    "desc": "A simple way to add an iFrame of any web content. Seem to be abandoned."
   },
   {
     "longname": "MMM-iFrame",
@@ -3542,6 +3500,13 @@
     "desc": "Display values from Home automation software [JEEDOM](https://www.jeedom.com)."
   },
   {
+    "longname": "MMM-jitsi",
+    "id": "nomis6432/MMM-jitsi",
+    "url": "https://github.com/nomis6432/MMM-jitsi",
+    "author": "nomis6432",
+    "desc": "Jitsi meet IFrame integration"
+  },
+  {
     "longname": "MMM-JsonGraph",
     "id": "timdows/MMM-JsonGraph",
     "url": "https://github.com/timdows/MMM-JsonGraph",
@@ -3563,6 +3528,13 @@
     "desc": "A module for getting bluetooth remote control and keyboard inputs"
   },
   {
+    "longname": "KeyDisplayed",
+    "id": "l0b5ter/KeyDisplayed",
+    "url": "https://github.com/l0b5ter/KeyDisplayed",
+    "author": "MJØD",
+    "desc": "Use the keyboard to open and close a popupwindow in the MagicMirror². Like lets say using the \"q\" key will open a popupwindow on MagicMirror's webpage. Using the iFrame to display web content"
+  },
+  {
     "longname": "MMM-Koket-by-Sodexo",
     "id": "Alvinger/MMM-Koket-by-Sodexo",
     "url": "https://github.com/Alvinger/MMM-Koket-by-Sodexo",
@@ -3575,13 +3547,6 @@
     "url": "https://github.com/Txukie/MMM-LCDControl",
     "author": "Txukie",
     "desc": "Turns on or off a device connected to GPIO (in my case, an LCD screen) based on the input of a PIR device. Integrates nicely with MMM-Assistant (for voice control) and MMM-TelegramBot (for Telegram control)."
-  },
-  {
-    "longname": "lifecounter",
-    "id": "hangorazvan/lifecounter",
-    "url": "https://github.com/hangorazvan/lifecounter",
-    "author": "hangorazvan",
-    "desc": "Measure 1 billion with the seconds of your life."
   },
   {
     "longname": "MMM-Live-Stream-TV",
@@ -3610,6 +3575,13 @@
     "url": "https://github.com/doctorfree/MMM-MacAddressScan",
     "author": "doctorfree",
     "desc": "A module which determines the status of devices on the network based on their MAC address. It can also look up devices by IP addresses or hostnames. This module is an enhanced clone of the excellent MMM-NetworkScanner module by [Ian Perrin](https://github.com/ianperrin)"
+  },
+  {
+    "longname": "MMM-MALList",
+    "id": "NikosNtigas/MMM-MALList",
+    "url": "https://github.com/NikosNtigas/MMM-MALList",
+    "author": "NikosNtigas",
+    "desc": "Display the currently watching anime / currently reading manga of an [MyAnimeList](https://myanimelist.net) account."
   },
   {
     "longname": "MMM-Mashie-Skolmat",
@@ -3659,6 +3631,13 @@
     "url": "https://github.com/ahmedwab/MMM-ModuleHandler",
     "author": "ahmedwab",
     "desc": "An application that adds and removes any desired modules found on this website."
+  },
+  {
+    "longname": "motiondetector",
+    "id": "alexyak/motiondetector",
+    "url": "https://github.com/alexyak/motiondetector",
+    "author": "alexyak",
+    "desc": "Camera based motion detector."
   },
   {
     "longname": "MMM-MotionDisplay",
@@ -3843,6 +3822,13 @@
     "desc": "Uses HC-SR04 sensors to measure distance and display compliments if USER_PRESENCE is detected by MMM-PIR-Sensor and user is near the MagicMirror²."
   },
   {
+    "longname": "MMM-ncdeck",
+    "id": "motey/MMM_ncdeck",
+    "url": "https://github.com/motey/MMM_ncdeck",
+    "author": "motey",
+    "desc": "Viewer for Nextcloud Deck app decks"
+  },
+  {
     "longname": "MMM-Nest-Cameras",
     "id": "michael5r/mmm-nest-cameras",
     "url": "https://github.com/michael5r/mmm-nest-cameras",
@@ -3892,11 +3878,32 @@
     "desc": "Mod of the default newsfeed module - shows the logo and scrolls the headlines and brief description across the screen like those seen on the news channels."
   },
   {
+    "longname": "MMM-NextCloud-Tasks",
+    "id": "SoulOfNoob/MMM-NextCloud-Tasks",
+    "url": "https://github.com/SoulOfNoob/MMM-NextCloud-Tasks",
+    "author": "SoulOfNoob",
+    "desc": "Displays ToDo list(s) from NextCloud Tasks app"
+  },
+  {
+    "longname": "next-train-transilien",
+    "id": "next-train-transilien/",
+    "url": "https://github.com/trizome/next-train-transilien/",
+    "author": "trizome",
+    "desc": "Next trains / RER transilien (SNCF) Ile-de-France from a station"
+  },
+  {
     "longname": "MMM-NoteTaker",
     "id": "joanaz/MMM-NoteTaker",
     "url": "https://github.com/joanaz/MMM-NoteTaker",
     "author": "joanaz",
     "desc": "Display your notes stored by Alexa skill [Note Taker](https://github.com/joanaz/AS-NoteTaker)."
+  },
+  {
+    "longname": "octoprint-module",
+    "id": "octomirror-module/",
+    "url": "https://github.com/shbatm/octomirror-module/",
+    "author": "DongerZonnie & shbatm",
+    "desc": "View & Control an OctoPrint 3d Printer Server Instance."
   },
   {
     "longname": "MMM-OneTracker",
@@ -3990,6 +3997,20 @@
     "desc": "This will show you your Peloton information to keep you motivated to achieve your goals."
   },
   {
+    "longname": "MMM-PhilipsHue",
+    "id": "mumblebaj/MMM-PhilipsHue",
+    "url": "https://github.com/mumblebaj/MMM-PhilipsHue",
+    "author": "mumblebaj",
+    "desc": "Module to grab the status of your lights from your Hue Bridge with some updated features to display status of lights or groups."
+  },
+  {
+    "longname": "phone-notification-mirror",
+    "id": "ronny3050/phone-notification-mirror",
+    "url": "https://github.com/ronny3050/phone-notification-mirror",
+    "author": "ronny3050",
+    "desc": "Displays and alerts mirror users on new phone notifications."
+  },
+  {
     "longname": "MMM-Pins",
     "id": "ptrbld/mmm-pins",
     "url": "https://github.com/ptrbld/mmm-pins",
@@ -4025,6 +4046,13 @@
     "desc": "Show lights and window states on a floorplan given from a pimatic server."
   },
   {
+    "longname": "MMM-Pinfo",
+    "id": "SalekurPolas/MMM-Pinfo",
+    "url": "https://github.com/SalekurPolas/MMM-Pinfo",
+    "author": "Salekur Rahaman",
+    "desc": "Informational module to display mirror information like Raspberry Pi model, unique serial number, network information, IPv4, IPv6, MAC address, OS information, CPU information, and more."
+  },
+  {
     "longname": "MMM-Ping",
     "id": "CFenner/MagicMirror-Ping-Module",
     "url": "https://github.com/CFenner/MagicMirror-Ping-Module",
@@ -4058,6 +4086,13 @@
     "url": "https://github.com/Wanztwurst/MMM-portscan",
     "author": "Wanztwurst",
     "desc": "Track the status of your services with opened/closed ports"
+  },
+  {
+    "longname": "MMM-Postnord",
+    "id": "bureus/MMM-Postnord",
+    "url": "https://github.com/bureus/MMM-Postnord",
+    "author": "bureus",
+    "desc": "Automatically track and trace PostNords letters, parcels and pallets with your phone number or email"
   },
   {
     "longname": "MMM-Powerwall",
@@ -4193,6 +4228,13 @@
     "desc": "Module to skim council website and extract rubish collection times"
   },
   {
+    "longname": "Shelly-HT",
+    "id": "Medve01/Shelly-HT",
+    "url": "https://github.com/Medve01/Shelly-HT",
+    "author": "Medve",
+    "desc": "Module for displaying data from 1 Shelly HT sensor."
+  },
+  {
     "longname": "MMM-TRV-WastePlan",
     "id": "reidarw/MMM-TRV-WastePlan",
     "url": "https://github.com/reidarw/MMM-TRV-WastePlan",
@@ -4212,6 +4254,13 @@
     "url": "https://github.com/parnic/MMM-ScreenLogic",
     "author": "Parnic",
     "desc": "Module to read data from a Pentair ScreenLogic pool system."
+  },
+  {
+    "longname": "MMM-SE-Reputation",
+    "id": "ChielChiel/MMM-SE-Reputation",
+    "url": "https://github.com/ChielChiel/MMM-SE-Reputation",
+    "author": "ChielChiel",
+    "desc": "Display your reputation of a StackExchange site (such as StackOverflow)."
   },
   {
     "longname": "MMM-Selfie",
@@ -4403,6 +4452,13 @@
     "desc": "A module for displaying the current, monthly and yearly power output of your SunnyPortal Solar Panels.(https://www.sunnyportal.com)."
   },
   {
+    "longname": "MMM-SweepClock",
+    "id": "mumblebaj/MMM-SweepClock",
+    "url": "https://github.com/mumblebaj/MMM-SweepClock",
+    "author": "mumblebaj",
+    "desc": "A Module to display a clasic Railway Clock"
+  },
+  {
     "longname": "MMM-Swipe",
     "id": "mochman/MMM-Swipe",
     "url": "https://github.com/mochman/MMM-Swipe",
@@ -4466,6 +4522,13 @@
     "desc": "This module gets real time arrival predictions for specifc stops using the TfL API."
   },
   {
+    "longname": "MMM-Thingiverse",
+    "id": "appdevelopmentandsuch/MMM-Thingiverse",
+    "url": "https://github.com/appdevelopmentandsuch/MMM-Thingiverse",
+    "author": "appdevelopmentandsuch",
+    "desc": "View the latest popular things on Thingiverse."
+  },
+  {
     "longname": "MMM-Tibber",
     "id": "ottopaulsen/MMM-Tibber",
     "url": "https://github.com/ottopaulsen/MMM-Tibber",
@@ -4492,6 +4555,13 @@
     "url": "https://github.com/cbrooker/MMM-Todoist",
     "author": "CBrooker",
     "desc": "Displays your todos from Todoist."
+  },
+  {
+    "longname": "MMM-toggle-by-mqtt",
+    "id": "moejetz/mmm-toggle-by-mqtt",
+    "url": "https://github.com/moejetz/mmm-toggle-by-mqtt",
+    "author": "moejetz",
+    "desc": "Shows/hides modules and turns on/off hdmi display based on mqtt command."
   },
   {
     "longname": "MMM-Toon",
@@ -4648,6 +4718,13 @@
     "desc": "Get the word of the day, its definition, and origin ..."
   },
   {
+    "longname": "MMM-Worldclock",
+    "id": "MMM-Worldclock/",
+    "url": "https://github.com/BKeyport/MMM-Worldclock/",
+    "author": "BKeyport & eouia",
+    "desc": "Fully supported version of worldclock"
+  },
+  {
     "longname": "MMM-WS281X-Server",
     "id": "coderpussy/MMM-WS281X-Server",
     "url": "https://github.com/coderpussy/MMM-WS281X-Server",
@@ -4676,10 +4753,38 @@
     "desc": "Display the status of Yeelight bulbs in your local network."
   },
   {
+    "longname": "compliments_plus",
+    "id": "hangorazvan/compliments_plus",
+    "url": "https://github.com/hangorazvan/compliments_plus",
+    "author": "hangorazvan",
+    "desc": "More day and night compliments with icons for Air Quality index from [onecall](https://github.com/hangorazvan/onecall) or [pollution](https://github.com/hangorazvan/pollution) and [moon phases](https://github.com/hangorazvan/redesigned/tree/master/phases) module"
+  },
+  {
+    "longname": "lifecounter",
+    "id": "hangorazvan/lifecounter",
+    "url": "https://github.com/hangorazvan/lifecounter",
+    "author": "hangorazvan",
+    "desc": "Measure 1 billion with the seconds of your life."
+  },
+  {
+    "longname": "swatch",
+    "id": "hangorazvan/swatch",
+    "url": "https://github.com/hangorazvan/swatch",
+    "author": "hangorazvan",
+    "desc": "Simple Swatch .beat Internet Time module"
+  },
+  {
+    "longname": "yframe",
+    "id": "hangorazvan/yframe",
+    "url": "https://github.com/hangorazvan/yframe",
+    "author": "hangorazvan",
+    "desc": "HTML5 Video, Audio, Youtube, Vimeo, Soundcloud, Bandcamp, Audiomack & Web iframe module"
+  },
+  {
     "longname": "MMM-YouLess2",
     "id": "eckonator/MMM-YouLess2",
     "url": "https://github.com/eckonator/MMM-YouLess2",
-    "author": "eckonator",
+    "author": "Eckonator",
     "desc": "This module reads from a YouLess energy meter in your network to display a gauge of realtime energy usage information. It´s a optimized fork from QNimbus first module."
   },
   {
@@ -4702,97 +4807,6 @@
     "url": "https://github.com/spectroman/mmm-zabbix-alerts",
     "author": "Spectroman",
     "desc": "Show the status of triggers from Zabbix via API calls."
-  },
-  {
-    "longname": "MMM-Postnord",
-    "id": "bureus/MMM-Postnord",
-    "url": "https://github.com/bureus/MMM-Postnord",
-    "author": "bureus",
-    "desc": "Automatically track and trace PostNords letters, parcels and pallets with your phone number or email"
-  },
-  {
-    "longname": "MMM-toggle-by-mqtt",
-    "id": "moejetz/mmm-toggle-by-mqtt",
-    "url": "https://github.com/moejetz/mmm-toggle-by-mqtt",
-    "author": "moejetz",
-    "desc": "Shows/hides modules and turns on/off hdmi display based on mqtt command."
-  },
-  {
-    "longname": "MMM-ncdeck",
-    "id": "motey/MMM_ncdeck",
-    "url": "https://github.com/motey/MMM_ncdeck",
-    "author": "motey",
-    "desc": "Viewer for Nextcloud Deck app decks"
-  },
-  {
-    "longname": "MMM-NextCloud-Tasks",
-    "id": "SoulOfNoob/MMM-NextCloud-Tasks",
-    "url": "https://github.com/SoulOfNoob/MMM-NextCloud-Tasks",
-    "author": "SoulOfNoob",
-    "desc": "Displays ToDo list(s) from NextCloud Tasks app"
-  },
-  {
-    "longname": "MMM-SE-Reputation",
-    "id": "ChielChiel/MMM-SE-Reputation",
-    "url": "https://github.com/ChielChiel/MMM-SE-Reputation",
-    "author": "ChielChiel",
-    "desc": "Display your reputation of a StackExchange site (such as StackOverflow)."
-  },
-  {
-    "longname": "MMM-AmbientBrightnessDetection",
-    "id": "eric-h-st/MMM-AmbientBrightnessDetection",
-    "url": "https://github.com/eric-h-st/MMM-AmbientBrightnessDetection",
-    "author": "eric-h-st",
-    "desc": "Ambient brightness detection and Auto-Brightness of the mirror modules accordingly"
-  },
-  {
-    "longname": "MMM-jitsi",
-    "id": "nomis6432/MMM-jitsi",
-    "url": "https://github.com/nomis6432/MMM-jitsi",
-    "author": "nomis6432",
-    "desc": "Jitsi meet IFrame integration"
-  },
-  {
-    "longname": "MMM-flicio",
-    "id": "nomis6432/MMM-flicio",
-    "url": "https://github.com/nomis6432/MMM-flicio",
-    "author": "nomis6432",
-    "desc": "send notifications to other modules with flic.io buttons."
-  },
-  {
-    "longname": "MMM-01ZM",
-    "id": "rubinho101/MMM-01ZM",
-    "url": "https://github.com/rubinho101/MMM-01ZM",
-    "author": "rubinho101",
-    "desc": "Display Xiaomi LYWSDCGQ 01ZM Temperature and Humidity sensor values directly AND Nova SDS011 PM Air Quality sensor data."
-  },
-  {
-    "longname": "MMM-MALList",
-    "id": "NikosNtigas/MMM-MALList",
-    "url": "https://github.com/NikosNtigas/MMM-MALList",
-    "author": "NikosNtigas",
-    "desc": "Display the currently watching anime / currently reading manga of an [MyAnimeList](https://myanimelist.net) account."
-  },
-  {
-    "longname": "swatch",
-    "id": "hangorazvan/swatch",
-    "url": "https://github.com/hangorazvan/swatch",
-    "author": "hangorazvan",
-    "desc": "Simple Swatch .beat Internet Time MM2 module"
-  },
-  {
-    "longname": "yframe",
-    "id": "hangorazvan/yframe",
-    "url": "https://github.com/hangorazvan/yframe",
-    "author": "hangorazvan",
-    "desc": "HTML5 Video, Audio, Youtube, Vimeo, Soundcloud, Bandcamp, Audiomack & Web iframe module"
-  },
-  {
-    "longname": "MMM-FTP-image",
-    "id": "jboucly/MMM-FTP-image",
-    "url": "https://github.com/jboucly/MMM-FTP-image",
-    "author": "jboucly",
-    "desc": "Displays images from an FTP server with a display delay"
   },
   {
     "longname": "MMM-MD",
