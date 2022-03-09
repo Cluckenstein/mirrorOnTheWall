@@ -2478,6 +2478,13 @@
     "desc": "This is a new version of the weather forecast module. This one does not come as a default module. This version has been edited to allow the days of the week to span left to right, each with its own weather icon and details. Uses openweathermap.org API Key."
   },
   {
+    "longname": "MMM-WH2600",
+    "id": "st3v0rr/MMM-WH2600",
+    "url": "https://github.com/st3v0rr/MMM-WH2600",
+    "author": "st3v0rr",
+    "desc": "This module integrates a WH2600 System to display several statistics like temperature and humidity for all registered sensors, wind data, UV index and rain data"
+  },
+  {
     "longname": "MMM-Windy",
     "id": "santi4488/MMM-windy",
     "url": "https://github.com/santi4488/MMM-windy",
@@ -4366,6 +4373,13 @@
     "url": "https://github.com/tkrywit/MMM-Solar",
     "author": "tkrywit",
     "desc": "Display statistics from your Enphase Energy microinverter PV system."
+  },
+  {
+    "longname": "MMM-SolarEdge",
+    "id": "st3v0rr/MMM-SolarEdge",
+    "url": "https://github.com/st3v0rr/MMM-SolarEdge",
+    "author": "st3v0rr",
+    "desc": "Display live data and statistics from your SolarEdge inverter system. PV and optional battery support."
   },
   {
     "longname": "MMM-SolarEdge",

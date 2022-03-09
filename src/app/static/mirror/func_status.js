@@ -646,7 +646,7 @@ function send_tz_change(id){
   let clock = idsplit[0]+"_"+idsplit[1]
   let tz = idsplit[2].replace(/%/g,"_")
   
-  if (timezones[tz]["offset"] >= 0){
+  if (timezones[tz]["offset"] > 0){
     settings["clock"][clock]["timezone"] = "Etc/GMT+"+(parseInt(timezones[tz]["offset"])-1)
   }
   else{

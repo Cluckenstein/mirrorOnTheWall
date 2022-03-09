@@ -195,6 +195,37 @@ Module.register("clock", {
 				nextEvent = tomorrowSunTimes.sunrise;
 			}
 			const untilNextEvent = moment.duration(moment(nextEvent).diff(now));
+
+			const timeOffset = parseInt(this.config["timezone"].split("GMT")[1]) + 1
+
+			const sunriseString = formatTime(this.config, sunTimes.sunrise)
+			let newSunriseInt = parseInt(sunriseString.substring(0, 2)) - timeOffset
+			if(newSunriseInt >= 24){
+				newSunriseInt -= 24
+			}
+			let newSunrise = newSunriseInt.toString()
+			if (newSunrise.length < 2){
+				newSunrise = 0 + newSunrise
+			}
+			const newSunriseString = newSunrise + sunriseString.slice(2)
+
+
+			const sunsetString = formatTime(this.config, sunTimes.sunset)
+			let newSunsetInt = parseInt(sunsetString.substring(0, 2)) - timeOffset
+			if(newSunsetInt >= 24){
+				newSunsetInt -= 24
+			}
+			if(newSunsetInt < 0){
+				newSunsetInt = 24 + newSunsetInt
+			}
+			let newSunset = newSunsetInt.toString()
+			if (newSunset.length < 2){
+				newSunset = 0 + newSunset
+			}
+			const newSunsetString = newSunset + sunsetString.slice(2)
+
+
+
 			const untilNextEventString = untilNextEvent.hours() + "h " + untilNextEvent.minutes() + "m";
 			sunWrapper.innerHTML =
 				'<span class="' +
@@ -203,10 +234,10 @@ Module.register("clock", {
 				untilNextEventString +
 				"</span>" +
 				'<span><i class="fa fa-arrow-up" aria-hidden="true"></i> ' +
-				formatTime(this.config, sunTimes.sunrise) +
+				newSunriseString +
 				"</span>" +
 				'<span><i class="fa fa-arrow-down" aria-hidden="true"></i> ' +
-				formatTime(this.config, sunTimes.sunset) +
+				newSunsetString +
 				"</span>";
 			digitalWrapper.appendChild(sunWrapper);
 		}

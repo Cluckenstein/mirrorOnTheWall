@@ -16,7 +16,7 @@
             "show": true,
             "showSunTimes": true,
             "showWeek": true,
-            "timezone": "Etc/GMT+-1"
+            "timezone": "Etc/GMT-1"
         }
     },
     "clock_2": {
@@ -24,12 +24,12 @@
         "position": "top_left",
         "config": {
             "displaySeconds": true,
-            "lat": -33.8651,
-            "lon": 151.2099,
-            "show": false,
+            "lat": 37.7739,
+            "lon": -122.4312,
+            "show": true,
             "showSunTimes": true,
             "showWeek": true,
-            "timezone": "Etc/GMT-11"
+            "timezone": "Etc/GMT+8"
         }
     },
     "calendar": {
@@ -68,7 +68,7 @@
             "apiKey": "28f8833d6494314b297aba01d98a6f72",
             "location": "Konstanz",
             "locationID": "2885679",
-            "show": false,
+            "show": true,
             "type": "forecast",
             "weatherProvider": "openweathermap"
         }
